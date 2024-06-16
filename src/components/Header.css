@@ -1,0 +1,33 @@
+.header {
+  background-color: var(--header-footer-bg-color);
+  color: var(--header-footer-text-color);
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid grey;
+}
+
+.header .logo {
+  font-size: 1.5em;
+}
+
+.header nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.header nav ul li {
+  margin: 0 10px;
+}
+
+.header nav ul li a {
+  color: var(--header-footer-text-color);
+  text-decoration: none;
+}
+
+.header nav ul li a:hover {
+  color: #9147ff;
+}
