@@ -1,18 +1,104 @@
+/* General body styles */
 body {
-  background-color: #1a1a2e; /* Dark blue background */
-  color: #e0e0e0; /* Light gray text */
-  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #1a1a2e; /* Dark blue background */
+  color: #e0e0e0; /* Light gray text */
 }
 
-.app {
+/* Header and Footer styles */
+.header, .footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 1020;
+}
+
+.header {
+  top: 0;
+  height: 60px;
+}
+
+.footer {
+  bottom: 0;
+  height: 88px;
+}
+
+/* Sidebar styles */
+.sidebar {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  justify-content: flex-start; /* Aligns content to start but uses padding for positioning */
+  align-items: center; /* Centers content horizontally */
+  padding-top: 5%; /* Adjusted to push content slightly from the top */
+  width: 250px;
+  position: fixed;
+  top: 60px; /* Positioned below the header */
+  left: 0;
+  bottom: 88px; /* Positioned above the footer */
+  overflow-y: auto;
+  background-color: var(--background-color); /* Using CSS variable for background color */
+  color: var(--text-color); /* Using CSS variable for text color */
+  z-index: 1000;
 }
 
+.sidebar-item {
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.sidebar-link {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+  padding: 10px 0;
+  width: 100%;
+}
+
+.sidebar-link:hover {
+  background-color: #374850; /* Highlight background color on hover */
+  color: #ffffff; /* Highlight text color on hover */
+}
+
+/* Main content area */
 .content {
-  flex: 1;
+  margin-left: 250px; /* Same as sidebar width */
+  margin-top: 60px; /* Same as header height */
+  margin-bottom: 88px; /* Same as footer height */
   padding: 20px;
+  overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    display: none; /* Hides sidebar on small screens */
+  }
+  .content {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 60px; /* Below the header */
+    padding-bottom: 88px; /* Above the footer */
+  }
+  .header, .footer {
+    position: static;
+  }
+}
+
+/* Specifically target iPhone sizes or smaller screens */
+@media (max-width: 480px) {
+  .sidebar {
+    display: none; /* Hides sidebar on iPhone sizes */
+  }
+  .content {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 60px; /* Below the header */
+    padding-bottom: 88px; /* Above the footer */
+  }
 }

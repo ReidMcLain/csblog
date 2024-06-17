@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Sidebar from './components/Sidebar';
 import Home from './pages/Home';
 import DigitalLogicandCircuits from './pages/DigitalLogicandCircuits';
 import ComputerArchitecture from './pages/ComputerArchitecture';
@@ -10,12 +11,12 @@ import DataStructuresandAlgorithms from './pages/DataStructuresandAlgorithms';
 import FullStackWebDevelopment from './pages/FullStackWebDevelopment';
 import './App.css';
 
-const App: React.FC = () => {
-  console.log('Rendering App component');
+const App = () => {
   return (
     <Router>
       <div className="app">
         <Header />
+        <Sidebar />
         <main className="content">
           <Routes>
             <Route path="/" element={<Home />} />
