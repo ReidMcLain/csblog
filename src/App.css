@@ -71,7 +71,17 @@ body {
   overflow-y: auto;
 }
 
+.content-target {
+  scroll-margin-top: 70px; /* 60px header height + 10px additional space */
+}
+
 @media (max-width: 768px) {
+  .header {
+    height: 50px;
+  }
+  .content-target {
+    scroll-margin-top: 60px; /* 50px header height + 10px additional space */
+  }
   .sidebar {
     display: none; /* Hides sidebar on small screens */
   }

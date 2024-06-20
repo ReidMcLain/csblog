@@ -3,6 +3,7 @@ import CharlesBabbage from '../assets/images/CharlesBabbage.jpg';
 import AnalyticalEngine from '../assets/images/AnalyticalEngine.jpg';
 import AdaLovelace from '../assets/images/AdaLovelace.jpg';
 import AlanTuring from '../assets/images/AlanTuring.jpg'
+import GraceHopper from '../assets/images/GraceHopper.jpg'
 
 const Home: React.FC = () => {
   console.log('Rendering Home component');
@@ -10,7 +11,7 @@ const Home: React.FC = () => {
     <div>
       <h1>Welcome to My Computer Science Blog</h1>
       <p>Explore topics from Digital Logic and Circuits to Full Stack Web Development.</p>
-      <h1>What are Computers?</h1>
+      <h1>History of Computers</h1>
       <p>A computer is an electronic device capable of performing complex calculations and tasks impossible for a human brain to accomplish in short time frames. </p>
       <p>Computers are composed of hardware (the physical, tangible parts of the computer) and software (the code that runs on the hardware). </p>
       <p>They operate on the basic principles of input (receiving data), processing (performing operations), and output (producing results).</p>
@@ -31,6 +32,10 @@ const Home: React.FC = () => {
       <p>Contributions: Considered the <strong>the father of computer science</strong>, Turing developed the concept of a theoretical computing machine (the Turing Machine) and broke the Enigma code during World War II.</p>
       <p>Key Works: Turing Machine, Turing Test.</p>
       <p>Impact: Laid the foundational concepts for algorithms and computation.</p>
+      <h1 id="grace-hopper">Grace Hopper</h1>
+      <img src={GraceHopper} alt="Grace Hopper" style={{ width: '25%', height: 'auto' }} />
+      <p>Grace Hopper was a pioneering computer scientist and U.S. Navy rear admiral who <strong>developed the first compiler</strong> for a computer programming language, a fundamental innovation that helped shape the future of programming</p>
+      <p>She also played a <strong>key role in the creation of COBOL</strong>, one of the first high-level programming languages, and is famously credited with <strong>popularizing the term "debugging"</strong> after a moth was found causing issues in a computer.</p>
     </div>
   );
 };
