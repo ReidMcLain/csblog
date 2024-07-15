@@ -15,7 +15,9 @@ import CombinationalCircuit from '../assets/images/CombinationalCircuit.jpg'
 import SequentialCircuit from '../assets/images/SequentialCircuit.jpg'
 import BinaryAddition from '../assets/images/BinaryAddition.jpg'
 import Adder from '../assets/images/Adder.jpg'
-import MultiPlexer from '../assets/images/Multiplexer.jpg'
+import Multiplexer from '../assets/images/Multiplexer.jpg'
+import Demultiplexer from '../assets/images/Demultiplexer.jpg'
+import EncoderAndDecoder from '../assets/images/EncoderandDecoder.jpg'
 import SRLatch from '../assets/images/SRLatch.jpg'
 import ButHowDoItKnow from '../assets/images/ButHowDoItKnow.jpg'
 import ClaudeShannon from '../assets/images/ClaudeShannon.jpg'
@@ -27,6 +29,21 @@ const DigitalLogicandCircuits: React.FC = () => {
             <h1><i>What</i> is a computer? </h1>
             <p>At its core, a computer is an intricate dance of 1's and 0's, a symphony of simplicity that powers the most complex machines known to humanity. </p>
             <p>This binary world where every decision boils down to yes or no, true or false, originates from concepts developed over a century and a half ago by an English mathematician named George Boole.</p>
+            <p>Combinational Circuits: Circuits that do not involve storing state (memory). This includes:</p>
+            <ul>
+                <li>Encoders and decoders</li>
+                <li>Multiplexers and demultiplexers</li>
+                <li>Arithmetic circuits like adders (full and half), subtractors</li>
+                <li>Comparators</li>
+            </ul>
+            <p>Sequential Circuits: Circuits that involve state or memory. This includes:</p>
+            <ul>
+                <li>Flip-flops (SR, D, T, JK)</li>
+                <li>Registers (building on flip-flops)</li>
+                <li>Counters</li>
+                <li>Finite State Machines</li>
+            </ul>
+
             <h1 id="historical-figures">George Boole (1815-1864)</h1>
             <img src={GeorgeBoole} alt="George Boole" style={{ width: '25%', height: 'auto' }} />
             <p>George Boole, a <strong>self-taught</strong> mathematical genius, laid the groundwork in the mid-19th century with his revolutionary work on logic and mathematics. </p>
@@ -283,6 +300,48 @@ const DigitalLogicandCircuits: React.FC = () => {
             <p>A combinational circuit is a type of digital circuit where <strong>the output is determined solely by the current inputs</strong>, without any memory or feedback elements influencing the result.</p>
             <p>These circuits perform specific operations like arithmetic calculations or data routing by directly processing the inputs through various logic gates.</p>
             <img src={CombinationalCircuit} alt="Combinational and Sequential Circuits" style={{ width: '40%', height: 'auto' }} />
+            <h1>4 Types of Combinational Circuits</h1>
+            <ul>
+                <li><strong>Coders and Decoders</strong></li>
+                <li><strong>Multiplexers and Demultiplexers</strong></li>
+                <li><strong>Arithmetic Circuits</strong></li>
+                <li><strong>Comparators</strong></li>
+            </ul>
+            <h1>Encoders and Decoders</h1>
+            <p>An <strong>Encoder</strong> is a device that converts information from one format or code to a more compact format, typically reducing the number of output lines compared to input lines, which simplifies data handling and communication.</p>
+            <p>A <strong>Decoder</strong> does the inverse of an encoder, expanding a compact code into its original form or a more extensive format, thereby enabling the accurate retrieval and distribution of information across various outputs.</p>
+            <img src={EncoderAndDecoder} alt="Multiplexer" style={{ width: '40%', height: 'auto' }} />
+            <h1 id="multiplexer">Multiplexers and Demultiplexers (Mux and Demux)</h1>
+            <p>A <strong>Multiplexer</strong> is a device that takes multiple input signals and selects one of them to be output, based on control signals, effectively channeling several data sources into a single line.</p>
+            <p>A <strong>Demultiplexer</strong> performs the opposite function of a multiplexer; it takes a single input signal and distributes it to one of several outputs, depending on control signals, efficiently managing data distribution across multiple channels.</p>
+            <h3>Multiplexer Example Circuit</h3>
+            <img src={Multiplexer} alt="Multiplexer" style={{ width: '40%', height: 'auto' }} />
+            <h3>Demultiplexer Example Circuit</h3>
+            <img src={Demultiplexer} alt="Demultiplexer" style={{ width: '40%', height: 'auto' }} />
+            <h1 id="adder">Adder Circuit</h1>
+            <p>An adder circuit is a type of combinational circuit used in digital electronics to perform the addition of binary numbers.</p>
+            <p>It processes input bits through a configuration of logic gates to produce a sum and carry output, without relying on past input states or memory elements.</p>
+            <h2>Binary Addition Table</h2>
+            <p>To perform binary addition with two bits (1 or 0) using inputs A and B, calculate the Sum as the result of A exclusive OR B, which outputs true if A and B are different,</p>
+            <p>and calculate the Carry as the result of A AND B, which outputs true only if both A and B are true, indicating an overflow to the next higher bit.</p>
+            <img src={BinaryAddition} alt="Binary Addition" style={{ width: '30%', height: 'auto' }} />
+            <h3>Half Adder</h3>
+            <p>A half adder is a simple combinational circuit that adds two single-bit binary numbers, producing two outputs: a sum and a carry.</p>
+            <p><strong>Inputs</strong>: A and B <strong>Outputs</strong>: Sum and Carry</p>
+            <h3>Full Adder</h3>
+            <p>A full adder is a combinational circuit that adds three binary digits—two significant bits and a carry-in from a previous addition—</p>
+            <p>producing a sum and a carry-out to be forwarded to the next higher bit position.</p>
+            <p><strong>Inputs</strong> A, B, Carry-in or (cin) <strong>Outputs</strong>: Sum and Carry-out (cout)</p>
+            <h1>Full Adder Example</h1>
+            <img src={Adder} alt="Adder" style={{ width: '40%', height: 'auto' }} />
+            <ul>
+                <li><strong>First XOR Gate</strong>: Computes the intermediate sum of A and B.</li>
+                <li><strong>Second XOR Gate</strong>: Takes the output of the first XOR gate and Cin as inputs to produce the final Sum.</li>
+                <li><strong>First AND Gate</strong>: Computes the intermediate carry by taking A and B as inputs.</li>
+                <li><strong>Second AND Gate</strong>: Computes another intermediate carry by taking the output of the first XOR gate and Cin as inputs.</li>
+                <li><strong>OR Gate</strong>: Combines the outputs of both AND gates to produce the final Cout, ensuring that any carry generated by either pair of inputs is passed to the next higher bit.</li>
+            </ul>
+            <h1>Comparators</h1>
             <h1>Sequential Circuit</h1>
             <p>A sequential circuit is a type of digital circuit that incorporates <strong>memory</strong> elements, allowing the output to depend not only on the <strong>current inputs but also on previous states.</strong></p>
             <p>This design enables the circuit to perform more complex operations and maintain a history, essential for tasks that require data storage or timed processes.</p>
@@ -310,15 +369,8 @@ const DigitalLogicandCircuits: React.FC = () => {
                 <li><strong>Second AND Gate</strong>: Computes another intermediate carry by taking the output of the first XOR gate and Cin as inputs.</li>
                 <li><strong>OR Gate</strong>: Combines the outputs of both AND gates to produce the final Cout, ensuring that any carry generated by either pair of inputs is passed to the next higher bit.</li>
             </ul>
-            <h1 id="multiplexer">Multiplexers (Mux)</h1>
-            <p>Sometimes, we need to turn many inputs into a single output and this type of circuit is called a multiplexer</p>
-            <p>Multiplexers do this by selecting one of several input signals based on control lines, efficiently managing multiple data streams through a single channel.</p>
-            <p>Multiplexers in memory systems enhance efficiency by allowing fewer address lines to select from multiple memory addresses, enabling dynamic and scalable addressing without increasing hardware complexity.</p>
-            <p>The inverse of Multiplexer is called a <strong>Demultiplexer</strong> (demux) and takes 1 input and turns into and equal amount of outputs as the original mux input.</p>
-            <h3>Multiplexer Example Circuit</h3>
-            <img src={MultiPlexer} alt="Multiplexer" style={{ width: '40%', height: 'auto' }} />
             <h1 id="memory">Memory in Circuits</h1>
-            <img src={ButHowDoItKnow} alt="Multiplexer" style={{ width: '20%', height: 'auto' }} />
+            <img src={ButHowDoItKnow} alt="ButHowDoItKnow" style={{ width: '20%', height: 'auto' }} />
             <p><i>(Famous book amount how a computer stores memory humorously titled "But How Do it Know?")</i></p>
             <h1>Flip Flops</h1>
             <p>After discussing the role of multiplexers and demultiplexers in routing and selecting data paths, it's crucial to explore how digital systems actually retain this data.</p>
