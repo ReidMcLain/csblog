@@ -23,6 +23,7 @@ import SRLatch from '../assets/images/SRLatch.jpg'
 import Register from '../assets/images/4BitRegister.jpg'
 import ButHowDoItKnow from '../assets/images/ButHowDoItKnow.jpg'
 import ClaudeShannon from '../assets/images/ClaudeShannon.jpg'
+import InteractiveAndGate from '../components/InteractiveLogicGates/InteractiveAndGate';
 
 const DigitalLogicandCircuits: React.FC = () => {
     console.log('Rendering DigitalLogicandCircuits component');
@@ -104,7 +105,7 @@ const DigitalLogicandCircuits: React.FC = () => {
             </table>
             <h2>AND Gate in a Digital Circuit</h2>
             <img src={AndGate} alt="And Gate" style={{ width: '40%', height: 'auto' }} />
-
+            <InteractiveAndGate />
 
             <h2>2. OR Gate Truth Table</h2>
             <p><strong>Operation:</strong> Outputs true (1) if at least one input is true (1).</p>
