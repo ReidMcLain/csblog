@@ -9,8 +9,8 @@ const InteractiveNotGate = () => {
 
   return (
     <div style={{
-      width: '300px',
-      height: '150px',
+      width: '420px',
+      height: '210px',
       backgroundColor: '#8c8f85',
       display: 'flex',
       justifyContent: 'center',
@@ -22,7 +22,7 @@ const InteractiveNotGate = () => {
       <div style={{
         position: 'absolute',
         left: '0',  // Positioned at the very left edge
-        top: '62.5px',  // Vertically centered
+        top: '97.5px',  // Vertically centered
       }}>
         <div onClick={handleClickInput} style={{
           width: '25px',
@@ -37,8 +37,8 @@ const InteractiveNotGate = () => {
       <div style={{
         position: 'absolute',
         left: '25px',  // Starting exactly at the edge of the input orb
-        top: '75px',
-        width: '100px',
+        top: '110px',
+        width: '160px',
         height: '2px',
         backgroundColor: input === 0 ? 'red' : 'orange',  // Active when input is 0
         transition: 'background-color 0.3s'
@@ -54,8 +54,8 @@ const InteractiveNotGate = () => {
         justifyContent: 'center',
         alignItems: 'center',
         position: 'absolute',
-        left: '125px',  // Centered manually for the "NOT" text
-        top: '62.5px'
+        left: '185px',  // Centered manually for the "NOT" text
+        top: '97.5px'
       }}>
         NOT
       </div>
@@ -63,9 +63,9 @@ const InteractiveNotGate = () => {
       {/* Wire from NOT gate to Output, perfectly aligned with the NOT gate and orb */}
       <div style={{
         position: 'absolute',
-        left: '175px',  // Starting exactly at the NOT gate
-        top: '75px',
-        width: '100px',
+        left: '235px',  // Starting exactly at the NOT gate
+        top: '110px',
+        width: '160px',
         height: '2px',
         backgroundColor: input === 0 ? 'orange' : 'red',  // Active when input is 0
         transition: 'background-color 0.3s'
@@ -75,7 +75,7 @@ const InteractiveNotGate = () => {
       <div style={{
         position: 'absolute',
         right: '0',  // Positioned at the very right edge
-        top: '62.5px',  // Vertically centered
+        top: '97.5px',  // Vertically centered
       }}>
         <div style={{
           width: '25px',

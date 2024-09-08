@@ -24,8 +24,8 @@ const InteractiveAndGate = () => {
 
   return (
     <div style={{
-      width: '300px',
-      height: '150px',
+      width: '420px',
+      height: '210px',
       backgroundColor: '#8c8f85',
       display: 'flex',
       justifyContent: 'center',
