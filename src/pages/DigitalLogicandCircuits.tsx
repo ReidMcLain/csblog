@@ -1,6 +1,5 @@
 import React from 'react';
 import logicGatesImage from '../assets/images/LogicGates.jpg';
-import OrGate from '../assets/images/OrGate.jpg'
 import XorGate from '../assets/images/XorGate.jpg'
 import NorGate from '../assets/images/NorGate.jpg'
 import XnorGate from '../assets/images/XnorGate.jpg'
@@ -23,6 +22,7 @@ import ClaudeShannon from '../assets/images/ClaudeShannon.jpg'
 import InteractiveAndGate from '../components/InteractiveLogicGates/InteractiveAndGate';
 import InteractiveNotGate from '../components/InteractiveLogicGates/InteractiveNotGate';
 import InteractiveNandGate from '../components/InteractiveLogicGates/InteractiveNandGate';
+import InteractiveOrGate from '../components/InteractiveLogicGates/InteractiveOrGate';
 
 const DigitalLogicandCircuits: React.FC = () => {
     return (
@@ -189,7 +189,7 @@ const DigitalLogicandCircuits: React.FC = () => {
                 </tr>
             </table>
             <h2>OR Gate in a Digital Circuit</h2>
-            <img src={OrGate} alt="Or Gate" style={{ width: '40%', height: 'auto' }} />
+            <InteractiveOrGate/>
 
             <h2>5. NOR Gate Table</h2>
             <p><strong>Operation:</strong> Outputs true (1) only if all inputs are false (0). It is the inverse of the OR operation.</p>
