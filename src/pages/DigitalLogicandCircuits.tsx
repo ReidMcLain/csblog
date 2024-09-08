@@ -1,8 +1,5 @@
 import React from 'react';
 import logicGatesImage from '../assets/images/LogicGates.jpg';
-import AndGate from '../assets/images/AndGate.jpg'
-import NotGate from '../assets/images/NotGate.jpg'
-import NandGate from '../assets/images/NandGate.jpg'
 import OrGate from '../assets/images/OrGate.jpg'
 import XorGate from '../assets/images/XorGate.jpg'
 import NorGate from '../assets/images/NorGate.jpg'
@@ -24,9 +21,10 @@ import Register from '../assets/images/4BitRegister.jpg'
 import ButHowDoItKnow from '../assets/images/ButHowDoItKnow.jpg'
 import ClaudeShannon from '../assets/images/ClaudeShannon.jpg'
 import InteractiveAndGate from '../components/InteractiveLogicGates/InteractiveAndGate';
+import InteractiveNotGate from '../components/InteractiveLogicGates/InteractiveNotGate';
+import InteractiveNandGate from '../components/InteractiveLogicGates/InteractiveNandGate';
 
 const DigitalLogicandCircuits: React.FC = () => {
-    console.log('Rendering DigitalLogicandCircuits component');
     return (
         <div>
             <h1><i>What</i> is a computer? </h1>
@@ -73,7 +71,28 @@ const DigitalLogicandCircuits: React.FC = () => {
             <p>Boolean operations are fundamental operations in Boolean algebra, which is a branch of mathematics dealing with variables that have two possible values: true (1) and false (0).</p>
             <p>The primary Boolean operations are AND, OR, NOT, NAND, NOR, XOR, XNOR., and these operations form the basis for more complex logical expressions and calculations.</p>
             <h3>Now, let's show Truth Tables of all Boolean Operations as well as Digital Circuit examples:</h3>
-            <h2>1. AND Gate Truth Table</h2>
+
+            <h2>1. NOT Gate Truth Table</h2>
+            <p><strong>Operation:</strong> Outputs the inverse of the input.</p>
+            <p><strong>Symbol:</strong> ¬</p>
+            <table>
+                <tr>
+                    <th>A</th>
+                    <th>Output</th>
+                </tr>
+                <tr>
+                    <td>0</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>0</td>
+                </tr>
+            </table>
+            <h2>NOT Gate in a Digital Circuit</h2>
+            <InteractiveNotGate/>
+
+            <h2>2. AND Gate Truth Table</h2>
             <p><strong>Operation:</strong> Outputs true (1) only if all inputs are true (1).</p>
             <p><strong>Symbol:</strong> ∧</p>
             <table>
@@ -104,10 +123,42 @@ const DigitalLogicandCircuits: React.FC = () => {
                 </tr>
             </table>
             <h2>AND Gate in a Digital Circuit</h2>
-            <img src={AndGate} alt="And Gate" style={{ width: '40%', height: 'auto' }} />
             <InteractiveAndGate />
 
-            <h2>2. OR Gate Truth Table</h2>
+            <h2>3. NAND Gate Truth Table</h2>
+            <p><strong>Operation:</strong> Outputs true (1) if not all inputs are true (1). It is the inverse of the AND operation.</p>
+            <p><strong>Symbol:</strong> ⊼</p>
+            <table>
+                <tr>
+                    <th>A</th>
+                    <th>B</th>
+                    <th>Output</th>
+                </tr>
+                <tr>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>0</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>0</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>0</td>
+                </tr>
+            </table>
+            <h2>NAND Gate in a Digital Circuit</h2>
+            <InteractiveNandGate/>
+
+            <h2>4. OR Gate Truth Table</h2>
             <p><strong>Operation:</strong> Outputs true (1) if at least one input is true (1).</p>
             <p><strong>Symbol:</strong> ∨</p>
             <table>
@@ -139,59 +190,6 @@ const DigitalLogicandCircuits: React.FC = () => {
             </table>
             <h2>OR Gate in a Digital Circuit</h2>
             <img src={OrGate} alt="Or Gate" style={{ width: '40%', height: 'auto' }} />
-
-            <h2>3. NOT Gate Truth Table</h2>
-            <p><strong>Operation:</strong> Outputs the inverse of the input.</p>
-            <p><strong>Symbol:</strong> ¬</p>
-            <table>
-                <tr>
-                    <th>A</th>
-                    <th>Output</th>
-                </tr>
-                <tr>
-                    <td>0</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>0</td>
-                </tr>
-            </table>
-            <h2>NOT Gate in a Digital Circuit</h2>
-            <img src={NotGate} alt="Not Gate" style={{ width: '40%', height: 'auto' }} />
-
-            <h2>4. NAND Gate Truth Table</h2>
-            <p><strong>Operation:</strong> Outputs true (1) if not all inputs are true (1). It is the inverse of the AND operation.</p>
-            <p><strong>Symbol:</strong> ⊼</p>
-            <table>
-                <tr>
-                    <th>A</th>
-                    <th>B</th>
-                    <th>Output</th>
-                </tr>
-                <tr>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>0</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>0</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>0</td>
-                </tr>
-            </table>
-            <h2>NAND Gate in a Digital Circuit</h2>
-            <img src={NandGate} alt="Nand Gate" style={{ width: '40%', height: 'auto' }} />
 
             <h2>5. NOR Gate Table</h2>
             <p><strong>Operation:</strong> Outputs true (1) only if all inputs are false (0). It is the inverse of the OR operation.</p>
