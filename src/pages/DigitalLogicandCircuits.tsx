@@ -1,7 +1,5 @@
 import React from 'react';
-import logicGatesImage from '../assets/images/LogicGates.jpg';
-import XorGate from '../assets/images/XorGate.jpg'
-import NorGate from '../assets/images/NorGate.jpg'
+import logicGatesImage from '../assets/images/LogicGates.jpg'
 import XnorGate from '../assets/images/XnorGate.jpg'
 import GeorgeBoole from '../assets/images/GeorgeBoole.jpg'
 import AugustusDeMorgan from '../assets/images/AugutusDeMorgan.jpg'
@@ -19,11 +17,12 @@ import SRLatch from '../assets/images/SRLatch.jpg'
 import Register from '../assets/images/4BitRegister.jpg'
 import ButHowDoItKnow from '../assets/images/ButHowDoItKnow.jpg'
 import ClaudeShannon from '../assets/images/ClaudeShannon.jpg'
-import InteractiveAndGate from '../components/InteractiveLogicGates/InteractiveAndGate';
-import InteractiveNotGate from '../components/InteractiveLogicGates/InteractiveNotGate';
-import InteractiveNandGate from '../components/InteractiveLogicGates/InteractiveNandGate';
-import InteractiveOrGate from '../components/InteractiveLogicGates/InteractiveOrGate';
+import InteractiveAndGate from '../components/InteractiveLogicGates/InteractiveAndGate'
+import InteractiveNotGate from '../components/InteractiveLogicGates/InteractiveNotGate'
+import InteractiveNandGate from '../components/InteractiveLogicGates/InteractiveNandGate'
+import InteractiveOrGate from '../components/InteractiveLogicGates/InteractiveOrGate'
 import InteractiveNorGate from '../components/InteractiveLogicGates/InteractiveNorGate'
+import InteractiveXorGate from '../components/InteractiveLogicGates/InteractiveXorGate'
 
 const DigitalLogicandCircuits: React.FC = () => {
     return (
@@ -223,7 +222,6 @@ const DigitalLogicandCircuits: React.FC = () => {
                 </tr>
             </table>
             <h2>NOR Gate in a Digital Circuit</h2>
-            <img src={NorGate} alt="Nor Gate" style={{ width: '40%', height: 'auto' }} />
             <InteractiveNorGate/>
 
             <h2>6. XOR Gate Table</h2>
@@ -257,7 +255,7 @@ const DigitalLogicandCircuits: React.FC = () => {
                 </tr>
             </table>
             <h2>XOR Gate in a Digital Circuit</h2>
-            <img src={XorGate} alt="Xor Gate" style={{ width: '40%', height: 'auto' }} />
+            <InteractiveXorGate/>
 
             <h2>7. XNOR Gate Table</h2>
             <p><strong>Operation:</strong> Outputs true (1) if both inputs are the same. It is the inverse of the XOR operation.</p>
