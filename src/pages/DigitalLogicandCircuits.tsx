@@ -23,6 +23,7 @@ import InteractiveAndGate from '../components/InteractiveLogicGates/InteractiveA
 import InteractiveNotGate from '../components/InteractiveLogicGates/InteractiveNotGate';
 import InteractiveNandGate from '../components/InteractiveLogicGates/InteractiveNandGate';
 import InteractiveOrGate from '../components/InteractiveLogicGates/InteractiveOrGate';
+import InteractiveNorGate from '../components/InteractiveLogicGates/InteractiveNorGate'
 
 const DigitalLogicandCircuits: React.FC = () => {
     return (
@@ -223,6 +224,7 @@ const DigitalLogicandCircuits: React.FC = () => {
             </table>
             <h2>NOR Gate in a Digital Circuit</h2>
             <img src={NorGate} alt="Nor Gate" style={{ width: '40%', height: 'auto' }} />
+            <InteractiveNorGate/>
 
             <h2>6. XOR Gate Table</h2>
             <p><strong>Operation:</strong> Outputs true (1) if exactly one of the inputs is true (1).</p>

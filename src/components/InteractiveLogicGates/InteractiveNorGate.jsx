@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
-const InteractiveOrGate = () => {
+const InteractiveNorGate = () => {
   const [inputA, setInputA] = useState(0);
   const [inputB, setInputB] = useState(0);
-  const [output, setOutput] = useState(0);  // Set initial output to 0
+  const [output, setOutput] = useState(1);  // NOR gate initial output is 1 for (0, 0)
 
   // Calculate output based on the inputs when the component mounts or inputs change
   useEffect(() => {
@@ -23,8 +23,9 @@ const InteractiveOrGate = () => {
   const calculateOutput = (a, b) => {
     const notA = !a;
     const notB = !b;
-    const nandOutput = !(notA && notB);  // Equivalent to OR logic
-    setOutput(nandOutput);
+    const nandOutput = !(notA && notB); // This gives OR gate behavior
+    const norOutput = !nandOutput; // NOT gate after the NAND logic to make it a NOR gate
+    setOutput(norOutput);
   };
 
   return (
@@ -158,13 +159,37 @@ const InteractiveOrGate = () => {
         top: '92.5px'
       }}>NAND</div>
 
+      {/* Wire from NAND gate to NOT gate */}
+      <div style={{
+        width: '80px',
+        height: '2px',
+        backgroundColor: output ? 'red' : 'orange',
+        position: 'absolute',
+        left: '300px',
+        top: '105px'
+      }}></div>
+
+      {/* NOT gate (final inverter for NOR gate) */}
+      <div style={{
+        width: '50px',
+        height: '25px',
+        backgroundColor: 'blue',
+        color: 'white',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        position: 'absolute',
+        left: '350px',
+        top: '92.5px'
+      }}>NOT</div>
+
       {/* Rightmost wire to output orb */}
       <div style={{
         width: '100px',
         height: '2px',
         backgroundColor: output ? 'orange' : 'red',
         position: 'absolute',
-        left: '300px',
+        left: '400px',
         top: '105px'
       }}></div>
 
@@ -175,7 +200,7 @@ const InteractiveOrGate = () => {
         backgroundColor: output ? 'yellow' : 'black',
         borderRadius: '50%',
         position: 'absolute',
-        left: '395px',
+        left: '495px',
         top: '92.5px',
         transition: 'background-color 0.3s'
       }}></div>
@@ -183,4 +208,4 @@ const InteractiveOrGate = () => {
   );
 };
 
-export default InteractiveOrGate;
+export default InteractiveNorGate;

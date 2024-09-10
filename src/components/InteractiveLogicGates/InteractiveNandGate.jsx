@@ -19,14 +19,14 @@ const InteractiveAndNotGate = () => {
 
   const calculateOutput = (a, b) => {
     const andOutput = a && b;  // AND gate computation
-    const notOutput = !andOutput;  // NOT gate inverts AND output
+    const notOutput = !andOutput ? 1 : 0;  // NOT gate inverts AND output, ensuring we output 1 or 0
     setOutput(notOutput);
   };
 
   return (
     <div style={{
-      width: '300px',
-      height: '150px',
+      width: '420px',
+      height: '210px',
       backgroundColor: '#8c8f85',
       display: 'flex',
       justifyContent: 'center',
@@ -38,7 +38,7 @@ const InteractiveAndNotGate = () => {
       <div style={{
         position: 'absolute',
         left: '0',
-        top: '25px',
+        top: '50px',
         display: 'flex',
         alignItems: 'center'
       }}>
@@ -52,13 +52,13 @@ const InteractiveAndNotGate = () => {
         }}></div>
         {/* Top-left diagonal wire */}
         <div style={{
-          width: '57px',  // Fixed length to exactly 50px
+          width: '100px',  // Fixed length to exactly 50px
           height: '2px',
           backgroundColor: inputA === 0 ? 'red' : 'orange',
           position: 'absolute',
           left: '25px',
-          top: '13.5px',  // Positioned to align with the top orb
-          transform: 'rotate(25deg)',  // Adjusted diagonal rotation
+          top: '12.5px',  // Positioned to align with the top orb
+          transform: 'rotate(19deg)',  // Adjusted diagonal rotation
           transformOrigin: 'left',
         }}></div>
       </div>
@@ -67,7 +67,7 @@ const InteractiveAndNotGate = () => {
       <div style={{
         position: 'absolute',
         left: '0',
-        top: '100px',
+        top: '135px',
         display: 'flex',
         alignItems: 'center'
       }}>
@@ -81,13 +81,13 @@ const InteractiveAndNotGate = () => {
         }}></div>
         {/* Bottom-left diagonal wire */}
         <div style={{
-          width: '57px',  // Fixed length to exactly 50px
+          width: '100px',  // Fixed length to exactly 50px
           height: '2px',
           backgroundColor: inputB === 0 ? 'red' : 'orange',
           position: 'absolute',
           left: '25px',
-          top: '13.5px',
-          transform: 'rotate(-30deg)',  // Adjusted diagonal rotation
+          top: '12.5px',
+          transform: 'rotate(-19deg)',  // Adjusted diagonal rotation
           transformOrigin: 'left',
         }}></div>
       </div>
@@ -102,18 +102,18 @@ const InteractiveAndNotGate = () => {
         justifyContent: 'center',
         alignItems: 'center',
         position: 'absolute',
-        left: '75px',
-        top: '62.5px'
+        left: '120px',
+        top: '92.5px'
       }}>AND</div>
 
       {/* Wire from AND gate to NOT gate, color depends on inputs */}
       <div style={{
-        width: '50px',
+        width: '80px',
         height: '2px',
         backgroundColor: (inputA && inputB) ? 'orange' : 'red',  // Only orange when both inputs are 1
         position: 'absolute',
-        left: '125px',
-        top: '75px'
+        left: '170px',
+        top: '105px'
       }}></div>
 
       {/* NOT gate */}
@@ -126,29 +126,29 @@ const InteractiveAndNotGate = () => {
         justifyContent: 'center',
         alignItems: 'center',
         position: 'absolute',
-        left: '175px',
-        top: '62.5px'
+        left: '250px',
+        top: '92.5px'
       }}>NOT</div>
 
       {/* Rightmost wire to output orb, opposite of middle wire */}
       <div style={{
-        width: '50px',
+        width: '100px',
         height: '2px',
         backgroundColor: (inputA && inputB) ? 'red' : 'orange',  // Red when both inputs are 1, orange otherwise
         position: 'absolute',
-        left: '225px',
-        top: '75px'
+        left: '300px',
+        top: '105px'
       }}></div>
 
       {/* Output orb */}
       <div style={{
         width: '25px',
         height: '25px',
-        backgroundColor: output ? 'yellow' : 'black',
+        backgroundColor: output === 1 ? 'yellow' : 'black',
         borderRadius: '50%',
         position: 'absolute',
-        left: '275px',
-        top: '62.5px',
+        left: '395px',
+        top: '92.5px',
         transition: 'background-color 0.3s'
       }}></div>
     </div>

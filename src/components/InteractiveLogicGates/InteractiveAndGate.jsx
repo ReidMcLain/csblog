@@ -18,8 +18,8 @@ const InteractiveAndGate = () => {
   };
 
   const calculateOutput = (a, b) => {
-    const newOutput = a && b;
-    setOutput(newOutput);
+    const andOutput = a && b;
+    setOutput(andOutput);
   };
 
   return (
@@ -33,40 +33,65 @@ const InteractiveAndGate = () => {
       margin: '20px 0',
       position: 'relative'
     }}>
+      {/* Top-left orb */}
       <div style={{
         position: 'absolute',
         left: '0',
-        top: '25px',
-        height: '100px',
+        top: '50px',
         display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-between',
+        alignItems: 'center'
       }}>
-        {[inputA, inputB].map((input, index) => (
-          <div key={index} style={{ display: 'flex', alignItems: 'center' }}>
-            <div onClick={index === 0 ? handleClickA : handleClickB} style={{
-              width: '25px',
-              height: '25px',
-              backgroundColor: input === 0 ? 'black' : 'yellow',
-              borderRadius: '50%',
-              cursor: 'pointer',
-              marginRight: '5px',
-            }}></div>
-            <div style={{
-              width: '125px',
-              height: '2px',
-              backgroundColor: input === 0 ? 'red' : 'orange',
-              position: 'absolute',
-              left: '25px',
-              top: index === 0 ? '12.5px' : '87.5px',
-              transform: `rotate(${index === 0 ? 15 : -15}deg)`,
-              transformOrigin: 'left',
-              transition: 'background-color 0.3s'
-            }}></div>
-          </div>
-        ))}
+        <div onClick={handleClickA} style={{
+          width: '25px',
+          height: '25px',
+          backgroundColor: inputA === 0 ? 'black' : 'yellow',
+          borderRadius: '50%',
+          cursor: 'pointer',
+          marginRight: '5px'
+        }}></div>
+
+        {/* Top-left horizontal wire */}
+        <div style={{
+          width: '155px',  // Length of the wire
+          height: '2px',
+          backgroundColor: inputA === 0 ? 'red' : 'orange',
+          position: 'absolute',
+          transform: 'rotate(12deg)',
+          left: '24px',
+          top: '27.5px'  // Horizontal wire directly connected to top-left orb
+        }}></div>
       </div>
 
+      {/* Bottom-left orb */}
+      <div style={{
+        position: 'absolute',
+        left: '0',
+        top: '135px',
+        display: 'flex',
+        alignItems: 'center'
+      }}>
+        <div onClick={handleClickB} style={{
+          width: '25px',
+          height: '25px',
+          backgroundColor: inputB === 0 ? 'black' : 'yellow',
+          borderRadius: '50%',
+          cursor: 'pointer',
+          marginRight: '5px'
+        }}></div>
+
+        {/* Bottom-left horizontal wire */}
+        <div style={{
+          width: '155px',  // Length of the wire
+          height: '2px',
+          backgroundColor: inputB === 0 ? 'red' : 'orange',
+          position: 'absolute',
+          transform: 'rotate(-12deg)',
+          left: '24px',
+          top: '-5px'  // Horizontal wire directly connected to bottom-left orb
+        }}></div>
+      </div>
+
+      {/* AND gate */}
       <div style={{
         width: '50px',
         height: '25px',
@@ -76,31 +101,29 @@ const InteractiveAndGate = () => {
         justifyContent: 'center',
         alignItems: 'center',
         position: 'absolute',
-        left: '125px',
-        top: '62.5px'
-      }}>
-        AND
-      </div>
+        left: '175px',
+        top: '92.5px'
+      }}>AND</div>
 
-      {/* Rightmost red line that changes color when output is active */}
+      {/* Rightmost wire to output orb */}
       <div style={{
-        width: '100px',
+        width: '180px',
         height: '2px',
         backgroundColor: output === 1 ? 'orange' : 'red',
         position: 'absolute',
-        left: '175px',
-        top: '75px',
-        transition: 'background-color 0.3s'
+        left: '225px',
+        top: '105px'
       }}></div>
 
+      {/* Output orb */}
       <div style={{
         width: '25px',
         height: '25px',
         backgroundColor: output === 1 ? 'yellow' : 'black',
         borderRadius: '50%',
         position: 'absolute',
-        left: '275px',
-        top: '62.5px',
+        left: '395px',
+        top: '92.5px',
         transition: 'background-color 0.3s'
       }}></div>
     </div>
