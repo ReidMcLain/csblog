@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logicGatesImage from '../assets/images/LogicGates.jpg'
 import GeorgeBoole from '../assets/images/GeorgeBoole.jpg'
 import AugustusDeMorgan from '../assets/images/AugutusDeMorgan.jpg'
@@ -24,6 +24,70 @@ import InteractiveNorGate from '../components/InteractiveLogicGates/InteractiveN
 import InteractiveXorGate from '../components/InteractiveLogicGates/InteractiveXorGate'
 import InteractiveXnorGate from '../components/InteractiveLogicGates/InteractiveXnorGate'
 
+const AccordionCard = ({ title, children }: { title: string, children: React.ReactNode }) => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    return (
+        <div style={{ 
+            marginBottom: '20px', 
+            border: '2px solid grey',  // Grey border for each accordion
+            borderRadius: '10px', 
+            color: 'black'           // Same text color as header
+        }}>
+            <div 
+                style={{ 
+                    padding: '20px', 
+                    backgroundColor: 'var(--header-footer-bg-color)',  // Header-like background
+                    color: 'var(--header-footer-text-color)',           // Header-like text color
+                    cursor: 'pointer', 
+                    display: 'flex', 
+                    justifyContent: 'space-between', 
+                    alignItems: 'center',
+                    borderBottom: '1px solid grey'  // Grey border at the bottom of each accordion header
+                }} 
+                onClick={() => setIsOpen(!isOpen)}>
+                <h1 style={{ margin: '0', paddingBottom: '10px' }}>{title}</h1>
+                <span style={{ fontSize: '1.5rem' }}>
+                    {isOpen ? '▲' : '▼'}
+                </span>
+            </div>
+            {isOpen && (
+                <div style={{ 
+                    padding: '20px', 
+                    backgroundColor: 'var(--accordion-body-bg-color)',  // Body background color
+                    color: 'var(--accordion-body-text-color)'            // Body text color
+                }}>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                        {children}
+                    </div>
+                </div>
+            )}
+        </div>
+    );
+};
+
+const imageContainerStyle: React.CSSProperties = {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',   // Center the h1 and img horizontally
+    justifyContent: 'flex-start',
+    width: '30%',
+    marginRight: '20px',
+};
+
+const imageStyle: React.CSSProperties = {
+    width: '100%',
+    height: '250px',
+    objectFit: 'cover',
+};
+
+const textStyle: React.CSSProperties = {
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+};
+
 const DigitalLogicandCircuits: React.FC = () => {
     return (
         <div>
@@ -45,29 +109,63 @@ const DigitalLogicandCircuits: React.FC = () => {
                 <li>Finite State Machines</li>
             </ul>
 
-            <h1 id="historical-figures">George Boole (1815-1864)</h1>
-            <img src={GeorgeBoole} alt="George Boole" style={{ width: '25%', height: 'auto' }} />
-            <p>George Boole, a <strong>self-taught</strong> mathematical genius, laid the groundwork in the mid-19th century with his revolutionary work on logic and mathematics. </p>
-            <p>Boole's 1854 writings, "An Investigation of the Laws of Thought," introduced <strong>Boolean algebra</strong>—a way to express logical processes mathematically. </p>
-            <p>This system, based entirely on binary variables that could only take on the values of true or false, underpins the digital circuits that drive the computers of today.</p>
-            <h1>Claude Shannon (1916-2001)</h1>
-            <img src={ClaudeShannon} alt="Claude Shannon" style={{ width: '25%', height: 'auto' }} />
-            <p>Claude Shannon was an American mathematician, electrical engineer, and cryptographer known as "<strong>the father of information theory</strong>." </p>
-            <p>Shannon's groundbreaking work introduced the concept of using binary digits to represent all data processed by a computer, fundamentally shaping the field of digital communications and computation.</p>
-            <p>In his landmark 1937 master's thesis, Shannon effectively applied Boolean algebra to electrical circuits for the first time, demonstrating that electronic switches could be arranged to resolve any logical, numerical relationship. </p>
-            <p>This thesis laid the foundational principles for digital circuit design, influencing every aspect of modern computing and telecommunications.</p>
-            <h1>Augustus De Morgan (1806-1871)</h1>
-            <img src={AugustusDeMorgan} alt="Augustus De Morgan" style={{ width: '25%', height: 'auto' }} />
-            <p>Augustus De Morgan, a contemporary and friend of Boole, who made significant contributions to logic and mathematics. </p>
-            <p><strong>De Morgan's Laws</strong>, which describe how to negate combined logical conditions, are critical for simplifying complex Boolean expressions.</p>
-            <img src={DemorganLogicGate} alt="De Morgan Logic Gate" style={{ width: '25%', height: 'auto' }} />
-            <p><i>(Above is a logic gate that proves De Morgan's logical conditions, AND, OR, & NOT)</i></p>
-            <h1>Ludwig Wittgenstein (1889-1951)</h1>
-            <img src={LudwigWittgenstein} alt="Ludwig Wittgenstein" style={{ width: '25%', height: 'auto' }} />
-            <p>Ludwig Wittgenstein, although primarily known as a philosopher, contributed significantly to the understanding of logic with his idea of <strong>truth tables</strong>.</p>
-            <p>A truth table is a mathematical table used in logic, computer science, and mathematics to determine the truth values of logical expressions based on their input values.</p>
-            <p>Wittgenstein’s truth tables provide a methodical way to compute and visualize the truth values of Boolean expressions, which is essential for designing and testing logic circuits.</p>
-            <h1 id="logic-gates">Combining Boolean Operations, Logic Gates, & Truth Tables</h1>
+            <div>
+                <AccordionCard title="History of Logic Gates">
+                    <AccordionCard title="Boolean Algebra">
+                        <div style={imageContainerStyle}>
+                            <h1>George Boole (1815-1864)</h1>
+                            <img src={GeorgeBoole} alt="George Boole" style={imageStyle} />
+                        </div>
+                        <div style={textStyle}>
+                            <p>George Boole, a <strong>self-taught</strong> mathematical genius, laid the groundwork in the mid-19th century with his revolutionary work on logic and mathematics.</p>
+                            <p>Boole's 1854 writings, "An Investigation of the Laws of Thought," introduced <strong>Boolean algebra</strong>—a way to express logical processes mathematically.</p>
+                            <p>This system, based entirely on binary variables that could only take on the values of true or false, underpins the digital circuits that drive the computers of today.</p>
+                        </div>
+                    </AccordionCard>
+
+                    <AccordionCard title="Boolean Expressions">
+                        <div style={imageContainerStyle}>
+                            <h1>Augustus De Morgan (1806-1871)</h1>
+                            <img src={AugustusDeMorgan} alt="Augustus De Morgan" style={imageStyle} />
+                        </div>
+                        <div style={textStyle}>
+                            <p>Augustus De Morgan, a contemporary and friend of Boole, made significant contributions to logic and mathematics.</p>
+                            <p><strong>De Morgan's Laws</strong>, which describe how to negate combined logical conditions, are critical for simplifying complex Boolean expressions.</p>
+                        </div>
+                        <div style={{ textAlign: 'center', width: '25%' }}>
+                            <img src={DemorganLogicGate} alt="De Morgan Logic Gate" style={{ width: '90%', height: 'auto', margin: '0 auto' }} />
+                            <p style={{ fontSize: '0.9em', marginTop: '10px' }}><i>(Above is a logic gate that proves De Morgan's logical conditions, AND, OR, & NOT)</i></p>
+                        </div>
+                    </AccordionCard>
+
+                    <AccordionCard title="Truth Table">
+                        <div style={imageContainerStyle}>
+                            <h1>Ludwig Wittgenstein (1889-1951)</h1>
+                            <img src={LudwigWittgenstein} alt="Ludwig Wittgenstein" style={imageStyle} />
+                        </div>
+                        <div style={textStyle}>
+                            <p>Ludwig Wittgenstein, although primarily known as a philosopher, contributed significantly to the understanding of logic with his idea of <strong>truth tables</strong>.</p>
+                            <p>A truth table is a mathematical table used in logic, computer science, and mathematics to determine the truth values of logical expressions based on their input values.</p>
+                            <p>Wittgenstein’s truth tables provide a methodical way to compute and visualize the truth values of Boolean expressions, which is essential for designing and testing logic circuits.</p>
+                        </div>
+                    </AccordionCard>
+
+                    <AccordionCard title="Logic Gates">
+                        <div style={imageContainerStyle}>
+                            <h1>Claude Shannon (1916-2001)</h1>
+                            <img src={ClaudeShannon} alt="Claude Shannon" style={imageStyle} />
+                        </div>
+                        <div style={textStyle}>
+                            <p>Claude Shannon was an American mathematician, electrical engineer, and cryptographer known as "<strong>the father of information theory</strong>."</p>
+                            <p>Shannon's groundbreaking work introduced the concept of using binary digits to represent all data processed by a computer, fundamentally shaping the field of digital communications and computation.</p>
+                            <p>In his landmark 1937 master's thesis, Shannon effectively applied Boolean algebra to electrical circuits for the first time, demonstrating that electronic switches could be arranged to resolve any logical, numerical relationship.</p>
+                            <p>This thesis laid the foundational principles for digital circuit design, influencing every aspect of modern computing and telecommunications.</p>
+                        </div>
+                    </AccordionCard>
+                </AccordionCard>
+            </div>
+
+            <h1 id="logic-gates">Combining Boolean Operations, Truth Tables, & Logic Gates</h1>
             <p>Boolean operations are fundamental operations in Boolean algebra, which is a branch of mathematics dealing with variables that have two possible values: true (1) and false (0).</p>
             <p>The primary Boolean operations are AND, OR, NOT, NAND, NOR, XOR, XNOR., and these operations form the basis for more complex logical expressions and calculations.</p>
             <h3>Now, let's show Truth Tables of all Boolean Operations as well as Digital Circuit examples:</h3>
@@ -90,7 +188,7 @@ const DigitalLogicandCircuits: React.FC = () => {
                 </tr>
             </table>
             <h2>NOT Gate in a Digital Circuit</h2>
-            <InteractiveNotGate/>
+            <InteractiveNotGate />
 
             <h2>2. AND Gate Truth Table</h2>
             <p><strong>Operation:</strong> Outputs true (1) only if all inputs are true (1).</p>
@@ -156,7 +254,7 @@ const DigitalLogicandCircuits: React.FC = () => {
                 </tr>
             </table>
             <h2>NAND Gate in a Digital Circuit</h2>
-            <InteractiveNandGate/>
+            <InteractiveNandGate />
 
             <h2>4. OR Gate Truth Table</h2>
             <p><strong>Operation:</strong> Outputs true (1) if at least one input is true (1).</p>
@@ -189,7 +287,7 @@ const DigitalLogicandCircuits: React.FC = () => {
                 </tr>
             </table>
             <h2>OR Gate in a Digital Circuit</h2>
-            <InteractiveOrGate/>
+            <InteractiveOrGate />
 
             <h2>5. NOR Gate Table</h2>
             <p><strong>Operation:</strong> Outputs true (1) only if all inputs are false (0). It is the inverse of the OR operation.</p>
@@ -222,7 +320,7 @@ const DigitalLogicandCircuits: React.FC = () => {
                 </tr>
             </table>
             <h2>NOR Gate in a Digital Circuit</h2>
-            <InteractiveNorGate/>
+            <InteractiveNorGate />
 
             <h2>6. XOR Gate Table</h2>
             <p><strong>Operation:</strong> Outputs true (1) if exactly one of the inputs is true (1).</p>
@@ -255,7 +353,7 @@ const DigitalLogicandCircuits: React.FC = () => {
                 </tr>
             </table>
             <h2>XOR Gate in a Digital Circuit</h2>
-            <InteractiveXorGate/>
+            <InteractiveXorGate />
 
             <h2>7. XNOR Gate Table</h2>
             <p><strong>Operation:</strong> Outputs true (1) if both inputs are the same. It is the inverse of the XOR operation.</p>
@@ -288,7 +386,7 @@ const DigitalLogicandCircuits: React.FC = () => {
                 </tr>
             </table>
             <h2>XNOR Gate in a Digital Circuit</h2>
-            <InteractiveXnorGate/>
+            <InteractiveXnorGate />
 
             <h1>Logic Gates Overview</h1>
             <p>Logic gates are physical devices that perform Boolean operations.</p>
