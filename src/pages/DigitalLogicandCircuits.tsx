@@ -1,6 +1,5 @@
 import React from 'react';
 import logicGatesImage from '../assets/images/LogicGates.jpg'
-import XnorGate from '../assets/images/XnorGate.jpg'
 import GeorgeBoole from '../assets/images/GeorgeBoole.jpg'
 import AugustusDeMorgan from '../assets/images/AugutusDeMorgan.jpg'
 import DemorganLogicGate from '../assets/images/DeMorganLogicGate.jpg'
@@ -23,6 +22,7 @@ import InteractiveNandGate from '../components/InteractiveLogicGates/Interactive
 import InteractiveOrGate from '../components/InteractiveLogicGates/InteractiveOrGate'
 import InteractiveNorGate from '../components/InteractiveLogicGates/InteractiveNorGate'
 import InteractiveXorGate from '../components/InteractiveLogicGates/InteractiveXorGate'
+import InteractiveXnorGate from '../components/InteractiveLogicGates/InteractiveXnorGate'
 
 const DigitalLogicandCircuits: React.FC = () => {
     return (
@@ -288,7 +288,8 @@ const DigitalLogicandCircuits: React.FC = () => {
                 </tr>
             </table>
             <h2>XNOR Gate in a Digital Circuit</h2>
-            <img src={XnorGate} alt="Xnor Gate" style={{ width: '40%', height: 'auto' }} />
+            <InteractiveXnorGate/>
+
             <h1>Logic Gates Overview</h1>
             <p>Logic gates are physical devices that perform Boolean operations.</p>
             <p>They are the basic building blocks of digital circuits and are used to create complex electronic circuits that perform various computational tasks.</p>
