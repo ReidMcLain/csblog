@@ -475,14 +475,14 @@ const DigitalLogicandCircuits: React.FC = () => {
             <h2>2.3 Arithmetic Circuits</h2>
             <p>An adder circuit is a type of combinational circuit used in digital electronics to perform the addition of binary numbers.</p>
             <p>It processes input bits through a configuration of logic gates to produce a sum and carry output, without relying on past input states or memory elements.</p>
-            <h3>Binary Addition Table</h3>
+            <h3>2.3.1 Binary Addition Table</h3>
             <p>To perform binary addition with two bits (1 or 0) using inputs A and B, calculate the Sum as the result of A exclusive OR B, which outputs true if A and B are different,</p>
             <p>and calculate the Carry as the result of A AND B, which outputs true only if both A and B are true, indicating an overflow to the next higher bit.</p>
             <img src={BinaryAddition} alt="Binary Addition" style={{ width: '30%', height: 'auto' }} className="responsive-image" />
-            <h3>Half Adder</h3>
+            <h3>2.3.2 Half Adder</h3>
             <p>A half adder is a simple combinational circuit that adds two single-bit binary numbers, producing two outputs: a sum and a carry.</p>
             <p><strong>Inputs</strong>: A and B <strong>Outputs</strong>: Sum and Carry</p>
-            <h3>Full Adder</h3>
+            <h3> 2.3.3 Full Adder</h3>
             <p>A full adder is a combinational circuit that adds three binary digits—two significant bits and a carry-in from a previous addition—</p>
             <p>producing a sum and a carry-out to be forwarded to the next higher bit position.</p>
             <p><strong>Inputs</strong> A, B, Carry-in or (cin) <strong>Outputs</strong>: Sum and Carry-out (cout)</p>
