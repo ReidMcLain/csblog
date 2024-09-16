@@ -9,6 +9,7 @@ const ComputerArchitecture: React.FC = () => {
       <p>Memory Hierarchy: RAM, cache, and storage.</p>
       <p>Instruction Set Architecture (ISA): Basic instructions and machine code.</p>
       <p>Assembly Language Programming: Writing simple programs in assembly.</p>
+      <h1>Work in Progess!</h1>
     </div>
   );
 };

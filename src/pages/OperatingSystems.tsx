@@ -9,6 +9,7 @@ const OperatingSystems: React.FC = () => {
       <p>Memory Management: Paging, segmentation, and virtual memory.</p>
       <p>Networking Fundamentals: TCP/IP, routing, and protocols.</p>
       <p>Security and Encryption: Basics of cybersecurity and encryption techniques.</p>
+      <h1>Work in Progess!</h1>
     </div>
   );
 };

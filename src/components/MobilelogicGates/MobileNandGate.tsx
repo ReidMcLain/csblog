@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const InteractiveAndNotGate = () => {
+const MobileNandGate = () => {
   const [inputA, setInputA] = useState(0);
   const [inputB, setInputB] = useState(0);
   const [output, setOutput] = useState(1);  // NAND gate initial output state
@@ -17,16 +17,16 @@ const InteractiveAndNotGate = () => {
     calculateOutput(inputA, newStateB);
   };
 
-  const calculateOutput = (a, b) => {
+  const calculateOutput = (a: number, b: number) => {
     const andOutput = a && b;  // AND gate computation
-    const notOutput = !andOutput ? 1 : 0;  // NOT gate inverts AND output, ensuring we output 1 or 0
+    const notOutput = !andOutput ? 1 : 0;  // NOT gate inverts AND output
     setOutput(notOutput);
   };
 
   return (
     <div style={{
-      width: '420px',
-      height: '210px',
+      width: '300px',
+      height: '150px',
       backgroundColor: '#8c8f85',
       display: 'flex',
       justifyContent: 'center',
@@ -34,11 +34,11 @@ const InteractiveAndNotGate = () => {
       margin: '20px 0',
       position: 'relative'
     }}>
-      {/* Top-left orb */}
+      {/* Top-left orb (Input A) */}
       <div style={{
         position: 'absolute',
         left: '0',
-        top: '50px',
+        top: '30px',
         display: 'flex',
         alignItems: 'center'
       }}>
@@ -50,24 +50,34 @@ const InteractiveAndNotGate = () => {
           cursor: 'pointer',
           marginRight: '5px'
         }}></div>
+        {/* Label for Input A */}
+        <div style={{
+          position: 'absolute',
+          top: '-20px',
+          left: '5px',
+          fontSize: '12px',
+          whiteSpace: 'nowrap',
+        }}>
+          Input A
+        </div>
         {/* Top-left diagonal wire */}
         <div style={{
-          width: '100px',  // Fixed length to exactly 50px
+          width: '55px',  // Fixed length to exactly 50px
           height: '2px',
           backgroundColor: inputA === 0 ? 'red' : 'orange',
           position: 'absolute',
           left: '25px',
           top: '12.5px',  // Positioned to align with the top orb
-          transform: 'rotate(19deg)',  // Adjusted diagonal rotation
+          transform: 'rotate(23deg)',  // Adjusted diagonal rotation
           transformOrigin: 'left',
         }}></div>
       </div>
 
-      {/* Bottom-left orb */}
+      {/* Bottom-left orb (Input B) */}
       <div style={{
         position: 'absolute',
         left: '0',
-        top: '135px',
+        top: '95px',
         display: 'flex',
         alignItems: 'center'
       }}>
@@ -79,15 +89,25 @@ const InteractiveAndNotGate = () => {
           cursor: 'pointer',
           marginRight: '5px'
         }}></div>
+        {/* Label for Input B */}
+        <div style={{
+          position: 'absolute',
+          top: '30px',
+          left: '5px',
+          fontSize: '12px',
+          whiteSpace: 'nowrap',
+        }}>
+          Input B
+        </div>
         {/* Bottom-left diagonal wire */}
         <div style={{
-          width: '100px',  // Fixed length to exactly 50px
+          width: '55px',  // Fixed length to exactly 50px
           height: '2px',
           backgroundColor: inputB === 0 ? 'red' : 'orange',
           position: 'absolute',
           left: '25px',
           top: '12.5px',
-          transform: 'rotate(-19deg)',  // Adjusted diagonal rotation
+          transform: 'rotate(-23deg)',  // Adjusted diagonal rotation
           transformOrigin: 'left',
         }}></div>
       </div>
@@ -102,18 +122,18 @@ const InteractiveAndNotGate = () => {
         justifyContent: 'center',
         alignItems: 'center',
         position: 'absolute',
-        left: '120px',
-        top: '92.5px'
+        left: '75px',
+        top: '62.5px'
       }}>AND</div>
 
       {/* Wire from AND gate to NOT gate, color depends on inputs */}
       <div style={{
-        width: '80px',
+        width: '50px',
         height: '2px',
         backgroundColor: (inputA && inputB) ? 'orange' : 'red',  // Only orange when both inputs are 1
         position: 'absolute',
-        left: '170px',
-        top: '105px'
+        left: '125px',
+        top: '74px'
       }}></div>
 
       {/* NOT gate */}
@@ -126,33 +146,46 @@ const InteractiveAndNotGate = () => {
         justifyContent: 'center',
         alignItems: 'center',
         position: 'absolute',
-        left: '250px',
-        top: '92.5px'
+        left: '175px',
+        top: '62.5px'
       }}>NOT</div>
 
-      {/* Rightmost wire to output orb, opposite of middle wire */}
+      {/* Rightmost wire to output orb */}
       <div style={{
-        width: '100px',
+        width: '50px',
         height: '2px',
         backgroundColor: (inputA && inputB) ? 'red' : 'orange',  // Red when both inputs are 1, orange otherwise
         position: 'absolute',
-        left: '300px',
-        top: '105px'
+        left: '225px',
+        top: '74px'
       }}></div>
 
       {/* Output orb */}
       <div style={{
-        width: '25px',
-        height: '25px',
-        backgroundColor: output === 1 ? 'yellow' : 'black',
-        borderRadius: '50%',
         position: 'absolute',
-        left: '395px',
-        top: '92.5px',
-        transition: 'background-color 0.3s'
-      }}></div>
+        left: '275px',
+        top: '62.5px',
+      }}>
+        <div style={{
+          width: '25px',
+          height: '25px',
+          backgroundColor: output === 1 ? 'yellow' : 'black',
+          borderRadius: '50%',
+          transition: 'background-color 0.3s',
+        }}></div>
+        {/* Label for Output */}
+        <div style={{
+          position: 'absolute',
+          top: '-20px',
+          right: '5px',
+          fontSize: '12px',
+          whiteSpace: 'nowrap',
+        }}>
+          Output
+        </div>
+      </div>
     </div>
   );
 };
 
-export default InteractiveAndNotGate;
+export default MobileNandGate;

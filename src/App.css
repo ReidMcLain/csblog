@@ -3,8 +3,9 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  background-color: #1a1a2e; /* Dark blue background */
-  color: #e0e0e0; /* Light gray text */
+  background-color: #1a1a2e;
+  color: #e0e0e0;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 /* Header and Footer styles */
@@ -29,17 +30,17 @@ body {
 .sidebar {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Aligns content to start but uses padding for positioning */
-  align-items: center; /* Centers content horizontally */
-  padding-top: 5%; /* Adjusted to push content slightly from the top */
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 5%;
   width: 250px;
   position: fixed;
-  top: 60px; /* Positioned below the header */
+  top: 60px;
   left: 0;
-  bottom: 88px; /* Positioned above the footer */
+  bottom: 88px;
   overflow-y: auto;
-  background-color: var(--background-color); /* Using CSS variable for background color */
-  color: var(--text-color); /* Using CSS variable for text color */
+  background-color: var(--background-color);
+  color: var(--text-color);
   z-index: 1000;
 }
 
@@ -58,57 +59,190 @@ body {
 }
 
 .sidebar-link:hover {
-  background-color: #374850; /* Highlight background color on hover */
-  color: #ffffff; /* Highlight text color on hover */
+  background-color: #374850;
+  color: #ffffff;
 }
 
 /* Main content area */
 .content {
-  margin-left: 250px; /* Same as sidebar width */
-  margin-top: 60px; /* Same as header height */
-  margin-bottom: 88px; /* Same as footer height */
+  margin-left: 250px;
+  margin-top: 60px;
+  margin-bottom: 88px;
   padding: 20px;
   overflow-y: auto;
 }
 
 .content-target {
-  scroll-margin-top: 70px; /* 60px header height + 10px additional space */
+  scroll-margin-top: 70px;
 }
 
+/* Media Queries for smaller screens */
 @media (max-width: 768px) {
   .header {
     height: 50px;
   }
   .content-target {
-    scroll-margin-top: 60px; /* 50px header height + 10px additional space */
+    scroll-margin-top: 60px;
   }
   .sidebar {
-    display: none; /* Hides sidebar on small screens */
+    display: none;
   }
   .content {
     width: 100%;
     margin-left: 0;
     margin-top: 0;
     margin-bottom: 0;
-    padding-top: 60px; /* Below the header */
-    padding-bottom: 88px; /* Above the footer */
+    padding-top: 60px;
+    padding-bottom: 88px;
   }
   .header, .footer {
     position: static;
   }
+
+  /* Accordion stacking behavior for mobile */
+  .accordion-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .accordion-card {
+    width: 100%;
+    margin-bottom: 10px;
+  }
 }
 
-/* Specifically target iPhone sizes or smaller screens */
+/* Adjustments for smaller screens */
 @media (max-width: 480px) {
   .sidebar {
-    display: none; /* Hides sidebar on iPhone sizes */
+    display: none;
   }
+
   .content {
     width: 100%;
-    margin-left: 0;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 0;
     margin-bottom: 0;
-    padding-top: 60px; /* Below the header */
-    padding-bottom: 88px; /* Above the footer */
+    padding-top: 60px;
+    padding-bottom: 88px;
+    max-width: 95%;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+  }
+
+  /* Accordion stacking behavior for smaller screens */
+  .accordion-content {
+    display: flex;
+    flex-direction: column !important;
+    align-items: center;
+  }
+
+  .accordion-card {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  /* Image scaling for smaller screens */
+  .accordion-content img {
+    width: 80%; /* Adjust width within the accordion */
+    height: auto;
+    max-width: 250px;
+  }
+
+  /* Adjustments for Interactive Logic Gates */
+  .interactive-logic-gate {
+    width: 100%;  /* Make the gate responsive */
+    height: auto;
+    padding: 10px;
+    transform: scale(0.8); /* Scale down for smaller screens */
+    overflow-x: hidden; /* Prevent shaking */
+  }
+
+  /* Interactive logic gate elements */
+  .interactive-logic-gate div {
+    width: 80%;
+    height: auto;
+  }
+
+  .interactive-logic-gate h1 {
+    font-size: 12px; /* Adjust font size for smaller screens */
+  }
+}
+
+/* Header adjustments */
+.header {
+  background-color: var(--header-footer-bg-color);
+  color: var(--header-footer-text-color);
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid grey;
+}
+
+.header .logo {
+  font-size: 1.5em;
+}
+
+.header nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+/* Space between menu items */
+.header nav ul li {
+  margin: 0 10px;
+}
+
+.header nav ul li a {
+  color: var(--header-footer-text-color);
+  text-decoration: none;
+}
+
+.header nav ul li a:hover {
+  color: #9147ff;
+}
+
+/* Media Query for screens smaller than 768px */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .header nav ul {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .header nav ul li {
+    margin: 10px 0;
+  }
+}
+
+/* Media Query for screens smaller than 480px */
+@media (max-width: 480px) {
+  .header {
+    padding: 10px;
+  }
+
+  .header nav ul {
+    flex-direction: column;
+    align-items: center;
+    padding-left: 0;
+  }
+
+  .header nav ul li {
+    margin: 5px 0;
+  }
+
+  .header .logo {
+    font-size: 1.2em;
+  }
+
+  .header nav ul li a {
+    font-size: 1em;
   }
 }

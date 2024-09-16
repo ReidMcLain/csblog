@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
-const InteractiveNorGate = () => {
+const DesktopXorGate = () => {
   const [inputA, setInputA] = useState(0);
   const [inputB, setInputB] = useState(0);
-  const [output, setOutput] = useState(1);  // Set initial output to 1
+  const [output, setOutput] = useState(0);  // Set initial output to 0
 
   // Calculate output based on the inputs when the component mounts or inputs change
   useEffect(() => {
@@ -13,24 +13,25 @@ const InteractiveNorGate = () => {
   const handleClickA = () => {
     const newStateA = inputA === 0 ? 1 : 0;
     setInputA(newStateA);
+    calculateOutput(newStateA, inputB);
   };
 
   const handleClickB = () => {
     const newStateB = inputB === 0 ? 1 : 0;
     setInputB(newStateB);
+    calculateOutput(inputA, newStateB);
   };
 
-  const calculateOutput = (a, b) => {
-    const notA = !a;
-    const notB = !b;
-    const andOutput = !(notA && notB);  // Equivalent to OR logic
-    const norOutput = !(a || b);  // NOR gate logic
-    setOutput(norOutput);
+  const calculateOutput = (a: number, b: number) => {
+    const orOutput = a || b; // OR gate
+    const nandOutput = !(a && b); // NAND gate
+    const xorOutput = orOutput && nandOutput; // Final XOR output using AND gate logic
+    setOutput(xorOutput ? 1 : 0);
   };
 
   return (
     <div style={{
-      width: '420px',
+      width: '420px',  // Keeping size at 420x210
       height: '210px',
       backgroundColor: '#8c8f85',
       display: 'flex',
@@ -39,7 +40,7 @@ const InteractiveNorGate = () => {
       margin: '20px 0',
       position: 'relative'
     }}>
-      {/* Top-left orb */}
+      {/* Top-left orb (Input A) */}
       <div style={{
         position: 'absolute',
         left: '0',
@@ -56,9 +57,20 @@ const InteractiveNorGate = () => {
           marginRight: '5px'
         }}></div>
 
-        {/* Top-left horizontal wire */}
+        {/* Label for Input A */}
         <div style={{
-          width: '95px',  // Length of the wire
+          position: 'absolute',
+          top: '-20px',
+          left: '5px',
+          fontSize: '14px',
+          whiteSpace: 'nowrap',
+        }}>
+          Input A
+        </div>
+
+        {/* Input 1 to OR gate wire */}
+        <div style={{
+          width: '95px',
           height: '2px',
           backgroundColor: inputA === 0 ? 'red' : 'orange',
           position: 'absolute',
@@ -66,7 +78,7 @@ const InteractiveNorGate = () => {
           top: '12.5px'  // Horizontal wire directly connected to top-left orb
         }}></div>
 
-        {/* Top-left NOT gate styling */}
+        {/* Top-left OR gate */}
         <div style={{
           width: '50px',
           height: '25px',
@@ -76,14 +88,14 @@ const InteractiveNorGate = () => {
           justifyContent: 'center',
           alignItems: 'center',
           position: 'absolute',
-          left: '120px',  // Top-left blue box (NOT gate)
-        }}>NOT</div>
+          left: '120px',
+        }}>OR</div>
 
-        {/* Top-left diagonal wire */}
+        {/* OR to AND gate wire */}
         <div style={{
           width: '100px',
           height: '2px',
-          backgroundColor: inputA === 1 ? 'red' : 'orange', // Inverted color logic
+          backgroundColor: (inputA === 0 && inputB === 0) ? 'red' : 'orange',  // Color change logic
           position: 'absolute',
           left: '170px',
           top: '12.5px',
@@ -92,7 +104,7 @@ const InteractiveNorGate = () => {
         }}></div>
       </div>
 
-      {/* Bottom-left orb */}
+      {/* Bottom-left orb (Input B) */}
       <div style={{
         position: 'absolute',
         left: '0',
@@ -109,9 +121,20 @@ const InteractiveNorGate = () => {
           marginRight: '5px'
         }}></div>
 
-        {/* Bottom-left horizontal wire */}
+        {/* Label for Input B */}
         <div style={{
-          width: '95px',  // Length of the wire
+          position: 'absolute',
+          top: '30px',
+          left: '5px',
+          fontSize: '14px',
+          whiteSpace: 'nowrap',
+        }}>
+          Input B
+        </div>
+
+        {/* Input 2 to NAND gate wire */}
+        <div style={{
+          width: '95px',
           height: '2px',
           backgroundColor: inputB === 0 ? 'red' : 'orange',
           position: 'absolute',
@@ -119,7 +142,7 @@ const InteractiveNorGate = () => {
           top: '12.5px'  // Horizontal wire directly connected to bottom-left orb
         }}></div>
 
-        {/* Bottom-left NOT gate styling */}
+        {/* Bottom-left NAND gate */}
         <div style={{
           width: '50px',
           height: '25px',
@@ -129,14 +152,14 @@ const InteractiveNorGate = () => {
           justifyContent: 'center',
           alignItems: 'center',
           position: 'absolute',
-          left: '120px',  // Bottom-left blue box (NOT gate)
-        }}>NOT</div>
+          left: '120px',  // Bottom-left blue box (NAND gate)
+        }}>NAND</div>
 
-        {/* Bottom-left diagonal wire */}
+        {/* NAND to AND gate wire */}
         <div style={{
           width: '100px',
           height: '2px',
-          backgroundColor: inputB === 1 ? 'red' : 'orange',  // Inverted color logic
+          backgroundColor: inputA === 1 && inputB === 1 ? 'red' : 'orange', // NAND turns red only if both inputs are 1
           position: 'absolute',
           left: '170px',
           top: '12.5px',
@@ -144,6 +167,30 @@ const InteractiveNorGate = () => {
           transformOrigin: 'left',
         }}></div>
       </div>
+
+      {/* Input 1 to AND gate wire */}
+      <div style={{
+        width: '120px',
+        height: '2px',
+        backgroundColor: inputA === 0 ? 'red' : 'orange',
+        position: 'absolute',
+        left: '25px',
+        top: '62.5px',
+        transform: 'rotate(37deg)',  // Slight diagonal for wire placement
+        transformOrigin: 'left',
+      }}></div>
+
+      {/* Input 2 to OR gate wire */}
+      <div style={{
+        width: '121px',
+        height: '2px',
+        backgroundColor: inputB === 0 ? 'red' : 'orange',
+        position: 'absolute',
+        left: '25px',
+        top: '147.5px',
+        transform: 'rotate(-38deg)',  // Slight diagonal for wire placement
+        transformOrigin: 'left',
+      }}></div>
 
       {/* AND gate (Right-most) */}
       <div style={{
@@ -159,11 +206,11 @@ const InteractiveNorGate = () => {
         top: '92.5px'
       }}>AND</div>
 
-      {/* Rightmost wire to output orb */}
+      {/* Output wire (AND gate to output orb) */}
       <div style={{
         width: '100px',
         height: '2px',
-        backgroundColor: output ? 'orange' : 'red',  // Default is orange, changes to red if output is 0
+        backgroundColor: output ? 'orange' : 'red',
         position: 'absolute',
         left: '300px',
         top: '105px'
@@ -171,17 +218,31 @@ const InteractiveNorGate = () => {
 
       {/* Output orb */}
       <div style={{
-        width: '25px',
-        height: '25px',
-        backgroundColor: output ? 'yellow' : 'black',  // Default is yellow, changes to black if output is 0
-        borderRadius: '50%',
         position: 'absolute',
         left: '395px',
         top: '92.5px',
-        transition: 'background-color 0.3s'
-      }}></div>
+      }}>
+        <div style={{
+          width: '25px',
+          height: '25px',
+          backgroundColor: output ? 'yellow' : 'black',
+          borderRadius: '50%',
+          transition: 'background-color 0.3s',
+        }}></div>
+
+        {/* Label for Output */}
+        <div style={{
+          position: 'absolute',
+          top: '-20px',
+          right: '5px',
+          fontSize: '14px',
+          whiteSpace: 'nowrap',
+        }}>
+          Output
+        </div>
+      </div>
     </div>
   );
 };
 
-export default InteractiveNorGate;
+export default DesktopXorGate;

@@ -9,6 +9,7 @@ const DataStructuresandAlgorithms: React.FC = () => {
       <p>Essential Algorithms: Sorting, searching, and graph algorithms.</p>
       <p>Complexity Analysis: Big O notation and algorithm efficiency.</p>
       <p>Real-world Applications: Use cases of algorithms and data structures.</p>
+      <h1>Work in Progess!</h1>
     </div>
   );
 };

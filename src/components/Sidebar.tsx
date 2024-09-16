@@ -23,10 +23,9 @@ const Sidebar = () => {
                 return [
                     { name: "Historical Figures", link: "#historical-figures" },
                     { name: "Logic Gates" , link: "#logic-gates" },
-                    { name: "Types of Circuits", link: "#circuit-types"},
-                    { name: "Adders", link: "#adder"},
-                    { name: "Multiplexers", link: "#multiplexer"},
-                    { name: "Memory", link: "#memory"}
+                    { name: "Combinational Circuits", link: "#combinational-circuits"},
+                    { name: "Sequential Circuits", link: "#sequential-circuits"},
+                    { name: "Finite State Machines", link: "#finite-state-machines"}
                 ];
             case '/computer-architecture':
                 return [

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const InteractiveXnorGate = () => {
+const DesktopXnorGate = () => {
   const [inputA, setInputA] = useState(0);
   const [inputB, setInputB] = useState(0);
   const [output, setOutput] = useState(0);  // XNOR output
@@ -20,12 +20,12 @@ const InteractiveXnorGate = () => {
     setInputB(newStateB);
   };
 
-  const calculateOutput = (a, b) => {
+  const calculateOutput = (a: number, b: number) => {
     const orOutput = a || b; // OR gate
     const nandOutput = !(a && b); // NAND gate
     const xorOutput = orOutput && nandOutput; // XOR output using AND gate logic
     const xnorOutput = !xorOutput; // Invert XOR output to get XNOR
-    setOutput(xnorOutput);
+    setOutput(xnorOutput ? 1 : 0);
   };
 
   return (
@@ -60,42 +60,28 @@ const InteractiveXnorGate = () => {
         <div style={{
           width: '55px',
           height: '2px',
-          backgroundColor: inputA === 1 ? 'orange' : 'red',  // Correct: Only orange when Input A is 1
+          backgroundColor: inputA === 1 ? 'orange' : 'red',  // Only orange when Input A is 1
           position: 'absolute',
           left: '25px',
           top: '12.5px'  // Horizontal wire directly connected to top-left orb
         }}></div>
 
-        {/* Top-left OR gate */}
+        {/* Label for Input A */}
         <div style={{
-          width: '50px',
-          height: '25px',
-          backgroundColor: 'blue',
-          color: 'white',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
           position: 'absolute',
-          left: '80px',
-        }}>OR</div>
+          top: '-20px',
+          left: '5px',
+          fontSize: '14px',
+          whiteSpace: 'nowrap',
+        }}>
+          Input A
+        </div>
 
-        {/* OR to AND gate wire */}
-        <div style={{
-          width: '65px',
-          height: '2px',
-          backgroundColor: inputA || inputB ? 'orange' : 'red',  // Correct logic for OR gate
-          position: 'absolute',
-          left: '130px',
-          top: '12.5px',
-          transform: 'rotate(28deg)',
-          transformOrigin: 'left',
-        }}></div>
-
-        {/* Input 1 to NAND gate wire */}
+        {/* Diagonal wire from Input A to NAND */}
         <div style={{
           width: '93px',
           height: '2px',
-          backgroundColor: inputA === 1 ? 'orange' : 'red',  // Correct: Only orange when Input A is 1
+          backgroundColor: inputA === 1 ? 'orange' : 'red',
           position: 'absolute',
           left: '25px',
           top: '12.5px',
@@ -121,46 +107,32 @@ const InteractiveXnorGate = () => {
           marginRight: '5px'
         }}></div>
 
+        {/* Label for Input B */}
+        <div style={{
+          position: 'absolute',
+          top: '30px',
+          left: '5px',
+          fontSize: '14px',
+          whiteSpace: 'nowrap',
+        }}>
+          Input B
+        </div>
+
         {/* Input 2 to OR gate wire */}
         <div style={{
           width: '55px',
           height: '2px',
-          backgroundColor: inputB === 1 ? 'orange' : 'red',  // Correct: Only orange when Input B is 1
+          backgroundColor: inputB === 1 ? 'orange' : 'red',
           position: 'absolute',
           left: '25px',
           top: '12.5px'  // Horizontal wire directly connected to bottom-left orb
         }}></div>
 
-        {/* Bottom-left NAND gate */}
-        <div style={{
-          width: '50px',
-          height: '25px',
-          backgroundColor: 'blue',
-          color: 'white',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          position: 'absolute',
-          left: '80px',  // Bottom-left blue box (NAND gate)
-        }}>NAND</div>
-
-        {/* NAND to AND gate wire */}
-        <div style={{
-          width: '65px',
-          height: '2px',
-          backgroundColor: (inputA === 1 && inputB === 1) ? 'red' : 'orange',  // NAND is 1 unless both inputs are on
-          position: 'absolute',
-          left: '130px',
-          top: '12.5px',
-          transform: 'rotate(-30deg)',
-          transformOrigin: 'left',
-        }}></div>
-
-        {/* Input 2 to NAND wire */}
+        {/* Diagonal wire from Input B to NAND */}
         <div style={{
           width: '93px',
           height: '2px',
-          backgroundColor: inputB === 1 ? 'orange' : 'red',  // Correct: Only orange when Input B is 1
+          backgroundColor: inputB === 1 ? 'orange' : 'red',
           position: 'absolute',
           left: '25px',
           top: '12.5px',
@@ -197,6 +169,30 @@ const InteractiveXnorGate = () => {
         top: '92.5px'
       }}>NOT</div>
 
+      {/* OR to AND wire */}
+      <div style={{
+        width: '65px',
+        height: '2px',
+        backgroundColor: inputA || inputB ? 'orange' : 'red',  // OR gate logic
+        position: 'absolute',
+        left: '130px',
+        top: '62.5px',
+        transform: 'rotate(28deg)',
+        transformOrigin: 'left',
+      }}></div>
+
+      {/* NAND to AND wire */}
+      <div style={{
+        width: '65px',
+        height: '2px',
+        backgroundColor: (inputA === 1 && inputB === 1) ? 'red' : 'orange',
+        position: 'absolute',
+        left: '130px',
+        top: '147.5px',
+        transform: 'rotate(-30deg)',
+        transformOrigin: 'left',
+      }}></div>
+
       {/* AND to NOT wire */}
       <div style={{
         width: '55px',
@@ -228,8 +224,48 @@ const InteractiveXnorGate = () => {
         top: '92.5px',
         transition: 'background-color 0.3s'
       }}></div>
+
+      {/* Label for Output */}
+      <div style={{
+        position: 'relative',
+        top: '-25px',
+        right: '5px',
+        fontSize: '14px',
+        whiteSpace: 'nowrap',
+        left: '185px'
+      }}>
+        Output
+      </div>
+
+      {/* OR gate */}
+      <div style={{
+        width: '50px',
+        height: '25px',
+        backgroundColor: 'blue',
+        color: 'white',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        position: 'absolute',
+        left: '80px',
+        top: '50px'
+      }}>OR</div>
+
+      {/* NAND gate */}
+      <div style={{
+        width: '50px',
+        height: '25px',
+        backgroundColor: 'blue',
+        color: 'white',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        position: 'absolute',
+        left: '80px',
+        top: '135px'
+      }}>NAND</div>
     </div>
   );
 };
 
-export default InteractiveXnorGate;
+export default DesktopXnorGate;
