@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
       <p>&copy; 2024 Reid's csblog. All rights reserved.</p>
       <div className="social-links">
         <a href="https://x.com/ReidMMcLain">Twitter</a>
-        <a href="ttps://www.linkedin.com/in/reid-mclain-678441179/">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/reid-mclain-678441179/">LinkedIn</a>
       </div>
     </footer>
   );

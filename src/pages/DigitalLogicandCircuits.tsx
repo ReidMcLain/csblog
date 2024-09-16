@@ -35,7 +35,7 @@ const AccordionCard = ({ title, children }: { title: string, children: React.Rea
     };
 
     // Check if the current screen width is less than 480px
-    const isMobile = window.innerWidth <= 480;
+    const isMobile = window.innerWidth <= 768;
     console.log(`Current screen width: ${window.innerWidth}, isMobile: ${isMobile}`);
 
     return (
@@ -117,7 +117,7 @@ const DigitalLogicandCircuits: React.FC = () => {
                         <div className="accordion-content">
                             <div className="accordion-image-container">
                                 <h1>George Boole (1815-1864)</h1>
-                                <img src={GeorgeBoole} alt="George Boole" className="accordion-image" />
+                                <img src={GeorgeBoole} alt="George Boole" className="accordion-image"/>
                             </div>
                             <div className="accordion-text">
                                 <p>George Boole, a <strong>self-taught</strong> mathematical genius, laid the groundwork in the mid-19th century with his revolutionary work on logic and mathematics.</p>
@@ -148,7 +148,7 @@ const DigitalLogicandCircuits: React.FC = () => {
                         <div className="accordion-content">
                             <div className="accordion-image-container">
                                 <h1>Ludwig Wittgenstein (1889-1951)</h1>
-                                <img src={LudwigWittgenstein} alt="Ludwig Wittgenstein" className="accordion-image" style={{ width: '60%', height: 'auto' }}/>
+                                <img src={LudwigWittgenstein} alt="Ludwig Wittgenstein" className="accordion-image" />
                             </div>
                             <div className="accordion-text">
                                 <p>Ludwig Wittgenstein, although primarily known as a philosopher, contributed significantly to the understanding of logic with his idea of <strong>truth tables</strong>.</p>
@@ -162,7 +162,7 @@ const DigitalLogicandCircuits: React.FC = () => {
                         <div className="accordion-content">
                             <div className="accordion-image-container">
                                 <h1>Claude Shannon (1916-2001)</h1>
-                                <img src={ClaudeShannon} alt="Claude Shannon" className="accordion-image" style={{ width: '60%', height: 'auto' }}/>
+                                <img src={ClaudeShannon} alt="Claude Shannon" className="accordion-image" />
                             </div>
                             <div className="accordion-text">
                                 <p>Claude Shannon was an American mathematician, electrical engineer, and cryptographer known as "<strong>the father of information theory</strong>."</p>
@@ -453,7 +453,7 @@ const DigitalLogicandCircuits: React.FC = () => {
             <h1 id="combinational-circuits">2. Combinational Circuits</h1>
             <p>Combinational circuits rely on the strategic arrangement of logic gates to perform specific tasks. These circuits are the backbone of essential operations in digital systems, such as addition, data selection, and encoding.</p>
 
-            <img src={CombinationalCircuit} alt="Combinational and Sequential Circuits" style={{ width: '40%', height: 'auto' }} />
+            <img src={CombinationalCircuit} alt="Combinational Circuit" style={{ width: '40%', height: 'auto' }} className="responsive-image" />
             <h2>4 Types of Combinational Circuits</h2>
             <ul>
                 <li><strong>Coders and Decoders</strong></li>
@@ -464,21 +464,21 @@ const DigitalLogicandCircuits: React.FC = () => {
             <h2>2.1 Encoders and Decoders</h2>
             <p>An <strong>Encoder</strong> is a device that converts information from one format or code to a more compact format, typically reducing the number of output lines compared to input lines, which simplifies data handling and communication.</p>
             <p>A <strong>Decoder</strong> does the inverse of an encoder, expanding a compact code into its original form or a more extensive format, thereby enabling the accurate retrieval and distribution of information across various outputs.</p>
-            <img src={EncoderAndDecoder} alt="Multiplexer" style={{ width: '40%', height: 'auto' }} />
+            <img src={EncoderAndDecoder} alt="Multiplexer" style={{ width: '40%', height: 'auto' }} className="responsive-image" />
             <h2>2.2 Multiplexers and Demultiplexers (Mux and Demux)</h2>
             <p>A <strong>Multiplexer</strong> is a device that takes multiple input signals and selects one of them to be output, based on control signals, effectively channeling several data sources into a single line.</p>
             <p>A <strong>Demultiplexer</strong> performs the opposite function of a multiplexer; it takes a single input signal and distributes it to one of several outputs, depending on control signals, efficiently managing data distribution across multiple channels.</p>
             <h3>Multiplexer Example Circuit</h3>
-            <img src={Multiplexer} alt="Multiplexer" style={{ width: '40%', height: 'auto' }} />
+            <img src={Multiplexer} alt="Multiplexer" style={{ width: '40%', height: 'auto' }} className="responsive-image" />
             <h3>2. Demultiplexer Example Circuit</h3>
-            <img src={Demultiplexer} alt="Demultiplexer" style={{ width: '40%', height: 'auto' }} />
+            <img src={Demultiplexer} alt="Demultiplexer" style={{ width: '40%', height: 'auto' }} className="responsive-image" />
             <h2>2.3 Arithmetic Circuits</h2>
             <p>An adder circuit is a type of combinational circuit used in digital electronics to perform the addition of binary numbers.</p>
             <p>It processes input bits through a configuration of logic gates to produce a sum and carry output, without relying on past input states or memory elements.</p>
             <h3>Binary Addition Table</h3>
             <p>To perform binary addition with two bits (1 or 0) using inputs A and B, calculate the Sum as the result of A exclusive OR B, which outputs true if A and B are different,</p>
             <p>and calculate the Carry as the result of A AND B, which outputs true only if both A and B are true, indicating an overflow to the next higher bit.</p>
-            <img src={BinaryAddition} alt="Binary Addition" style={{ width: '30%', height: 'auto' }} />
+            <img src={BinaryAddition} alt="Binary Addition" style={{ width: '30%', height: 'auto' }} className="responsive-image" />
             <h3>Half Adder</h3>
             <p>A half adder is a simple combinational circuit that adds two single-bit binary numbers, producing two outputs: a sum and a carry.</p>
             <p><strong>Inputs</strong>: A and B <strong>Outputs</strong>: Sum and Carry</p>
@@ -487,7 +487,7 @@ const DigitalLogicandCircuits: React.FC = () => {
             <p>producing a sum and a carry-out to be forwarded to the next higher bit position.</p>
             <p><strong>Inputs</strong> A, B, Carry-in or (cin) <strong>Outputs</strong>: Sum and Carry-out (cout)</p>
             <h3>Full Adder Example</h3>
-            <img src={Adder} alt="Adder" style={{ width: '40%', height: 'auto' }} />
+            <img src={Adder} alt="Adder" style={{ width: '40%', height: 'auto' }} className="responsive-image" />
             <ul>
                 <li><strong>First XOR Gate</strong>: Computes the intermediate sum of A and B.</li>
                 <li><strong>Second XOR Gate</strong>: Takes the output of the first XOR gate and Cin as inputs to produce the final Sum.</li>
@@ -499,7 +499,7 @@ const DigitalLogicandCircuits: React.FC = () => {
             <p>A comparator is a digital circuit used to compare two binary numbers and determine their relative magnitudes.</p>
             <p>It outputs binary signals indicating whether the numbers are equal, or one is greater than or less than the other.</p>
             <h2>1 Bit Comparator Example</h2>
-            <img src={Comparator} alt="Comparator" style={{ width: '40%', height: 'auto' }} />
+            <img src={Comparator} alt="Comparator" style={{ width: '40%', height: 'auto' }} className="responsive-image" />
             <h2>Beyond Current Inputs: The Need for Sequential Circuits</h2>
             <p>While combinational circuits process inputs purely based on their current state, modern digital systems require circuits that can remember and store past states to make more complex decisions.</p>
             <p>This leads us to <strong>sequential circuits</strong>, which incorporate memory elements like flip-flops. These circuits not only respond to present inputs but also account for previous ones, allowing for more advanced operations like counting, timing, and state tracking.</p>
@@ -507,7 +507,7 @@ const DigitalLogicandCircuits: React.FC = () => {
             <h1 id="sequential-circuits">3. Sequential Circuits</h1>
             <p>A sequential circuit is a type of digital circuit that incorporates <strong>memory</strong> elements, allowing the output to depend not only on the <strong>current inputs but also on previous states.</strong></p>
             <p>This design enables the circuit to perform more complex operations and maintain a history, essential for tasks that require data storage or timed processes.</p>
-            <img src={SequentialCircuit} alt="Combinational and Sequential Circuits" style={{ width: '40%', height: 'auto' }} />
+            <img src={SequentialCircuit} alt="Combinational and Sequential Circuits" style={{ width: '40%', height: 'auto' }} className="responsive-image" />
 
             <h2>3.1 Flip Flops</h2>
             <p>After discussing the role of multiplexers and demultiplexers in routing and selecting data paths, it's crucial to explore how digital systems actually retain this data.</p>
@@ -521,7 +521,7 @@ const DigitalLogicandCircuits: React.FC = () => {
                 <li><strong> 3.1.4 T (Toggle) Flip-Flop:</strong> The T flip-flop is a simplified version of the JK flip-flop, having only one input (T) along with the clock. When the T input is high, the flip-flop toggles its state with each clock pulse. This makes it ideal for applications such as divide-by-two counters and toggle operations in digital systems.</li>
             </ul>
             <h2>SR Latch Example</h2>
-            <img src={SRLatch} alt="S R Latch" style={{ width: '40%', height: 'auto' }} />
+            <img src={SRLatch} alt="S R Latch" style={{ width: '40%', height: 'auto' }} className="responsive-image" />
             <h2>3.2 Counters</h2>
             <p>A counter in digital circuits is a sequential logic device that stores and increments or decrements a value based on clock pulses.</p>
             <p>It is commonly used for counting events or measuring time intervals, utilizing flip-flops arranged in series to represent binary or decimal numbers.</p>
@@ -530,7 +530,7 @@ const DigitalLogicandCircuits: React.FC = () => {
             <p>Registers are small, fast storage locations within a computer's central processing unit (CPU) used to hold data temporarily during the execution of programs. They store and provide rapid access to necessary data and instructions that a CPU needs in order to carry out computational tasks efficiently.</p>
             <p>Each register typically holds a word of data (the size of which can vary depending on the architecture), and they are used for purposes such as holding variables and temporary results, managing instructions in the pipeline, controlling execution states, and interfacing with system memory and input/output paths.</p>
             <h3>4bit Register</h3>
-            <img src={Register} alt="Register" style={{ width: '40%', height: 'auto' }} />
+            <img src={Register} alt="Register" style={{ width: '40%', height: 'auto' }} className="responsive-image" />
             <h2>From Memory to Control: Enter the Finite State Machine</h2>
             <p>With sequential circuits providing the ability to store and recall past states, we can now build systems that make decisions based on both memory and current inputs. This gives rise to the <strong>finite state machine (FSM)</strong>, a powerful combination of sequential and combinational circuits.</p>
             <p>FSMs move through a series of predefined states, transitioning based on inputs, and are essential for controlling complex processes in digital systems, from basic user interfaces to complex control systems in computing.</p>
@@ -540,12 +540,14 @@ const DigitalLogicandCircuits: React.FC = () => {
             <h2>4.1 Mealy machine</h2>
             <p>A <strong>Mealy machine</strong> is a type of finite state machine where the outputs are determined by both the current state and the current inputs. This makes Mealy machines highly responsive, as the output can change immediately when the input changes, without waiting for a state transition.</p>
             <p>In practical applications, like vending machines and elevators, a Mealy machine adjusts its behavior based on real-time inputs, such as button presses or coin insertions, making them ideal for systems that require quick responses to input changes.</p>
-            <img src={VendingMachine} alt="Vending Machine" style={{ width: '20%', height: 'auto' }} />
-            <img src={Elevator} alt="Vending Machine" style={{ width: '50%', height: 'auto' }} />
+            <div className="image-container">
+                <img src={VendingMachine} alt="Vending Machine" style={{ width: '20%', height: 'auto' }} />
+                <img src={Elevator} alt="Vending Machine" style={{ width: '50%', height: 'auto' }} />
+            </div>
             <h2>4.2 Moore machine</h2>
             <p>A <strong>Moore machine</strong> is a type of finite state machine where the outputs are determined solely by the current state, independent of the current inputs. This means the output remains stable until a state transition occurs.</p>
             <p>Moore machines are often used in systems where the output needs to remain consistent during a given state, such as traffic lights, where the output (light color) changes only when the system transitions between states based on a timer or sensor input.</p>
-            <img src={TrafficLight} alt="Traffic Light" style={{ width: '40%', height: 'auto' }} />
+            <img src={TrafficLight} alt="Traffic Light" style={{ width: '40%', height: 'auto' }} className="responsive-image" />
             <h2 id="mealy-vs-moore">4.3 Differences Between Mealy and Moore Machines</h2>
             <p>While both Mealy and Moore machines are types of finite state machines, they differ in how they generate outputs:</p>
             <ul>
@@ -553,7 +555,7 @@ const DigitalLogicandCircuits: React.FC = () => {
                 <li><strong>Moore Machine:</strong> The output depends solely on the current state, making its behavior more predictable but potentially slower in responding to input changes.</li>
             </ul>
             <p>Mealy machines typically require fewer states than Moore machines because their outputs are more flexible. However, Moore machines are simpler to design and reason about, as their outputs do not change in response to inputs within a state.</p>
-            <img src={MealyvsMooreMachine} alt="Mealy vs Moore Machine" style={{ width: '40%', height: 'auto' }} />
+            <img src={MealyvsMooreMachine} alt="Mealy vs Moore Machine" style={{ width: '40%', height: 'auto' }} className="responsive-image" />
             <h1>Final Thoughts on Digital Circuits</h1>
             <p>From the simple logic gates to the more complex finite state machines, these foundational components form the core of every digital system. Their ability to process binary data and store information is what makes modern computing possible. Whether in a calculator, smartphone, or high-powered server, digital circuits enable the computations and decisions that drive technology forward.</p>
             <p>As we move into the realm of <strong>Computer Architecture</strong>, we will explore how these basic building blocks combine to create powerful systems capable of executing complex instructions and managing vast amounts of data. The digital circuits we've explored are the underpinnings of every higher-level computational function, and understanding them is key to understanding how computers work at their core.</p>

@@ -223,9 +223,10 @@ body {
 }
 
 /* Media Query for screens smaller than 480px */
-@media (max-width: 480px) {
+@media (max-width: 760px) {
   .header {
     padding: 10px;
+    height: 200px;
   }
 
   .header nav ul {
@@ -244,5 +245,70 @@ body {
 
   .header nav ul li a {
     font-size: 1em;
+  }
+}
+
+.responsive-image {
+  width: 40% !important;
+  height: auto !important;
+}
+
+@media (max-width: 1024px) {
+  .responsive-image {
+    width: 80% !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .responsive-image {
+    width: 80% !important;
+  }
+}
+.image-container {
+  display: flex;
+  align-items: center;
+  height: auto;
+}
+
+.image-container img {
+  height: 300px; /* Set a default height */
+  width: auto;
+}
+
+/* For tablet screens (width < 768px) */
+@media (max-width: 768px) {
+  .image-container img {
+    height: 200px; /* Adjust the height for tablet screens */
+  }
+}
+
+/* For mobile screens (width < 480px) */
+@media (max-width: 480px) {
+  .image-container img {
+    height: 150px; /* Adjust the height for mobile screens */
+  }
+}
+
+/* General styles for all images in accordion cards */
+.accordion-image {
+  width: 60%; /* Set a default width for desktop */
+  height: auto;
+  max-width: 400px; /* Prevent excessively large images on very large screens */
+  display: block;
+  margin: 0 auto;
+}
+
+/* For tablet screens (width < 768px) */
+@media (max-width: 1024px) {
+  .accordion-image {
+    width: 80%; /* Adjust the width for tablets */
+  }
+}
+
+/* For mobile screens (width < 480px) */
+@media (max-width: 480px) {
+  .accordion-image {
+    width: 80%; /* Adjust the width for mobile devices */
+    max-width: 200px;
   }
 }
