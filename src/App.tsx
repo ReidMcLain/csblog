@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Sidebar from './components/Sidebar';
+import Header from './components/Layout/Header';
+import Footer from './components/Layout/Footer';
+import Sidebar from './components/Layout/Sidebar';
 import Home from './pages/Home';
 import DigitalLogicandCircuits from './pages/DigitalLogicandCircuits';
 import ComputerArchitecture from './pages/ComputerArchitecture';
