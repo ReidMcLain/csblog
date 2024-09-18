@@ -42,8 +42,7 @@ const AccordionCard = ({ title, children }: { title: string, children: React.Rea
         <div className="accordion-card" style={{
             marginBottom: '20px',
             border: '2px solid grey',
-            borderRadius: '10px',
-            color: 'black'
+            borderRadius: '10px'
         }}>
             <div
                 className="accordion-header"
@@ -468,9 +467,9 @@ const DigitalLogicandCircuits: React.FC = () => {
             <h2>2.2 Multiplexers and Demultiplexers (Mux and Demux)</h2>
             <p>A <strong>Multiplexer</strong> is a device that takes multiple input signals and selects one of them to be output, based on control signals, effectively channeling several data sources into a single line.</p>
             <p>A <strong>Demultiplexer</strong> performs the opposite function of a multiplexer; it takes a single input signal and distributes it to one of several outputs, depending on control signals, efficiently managing data distribution across multiple channels.</p>
-            <h3>Multiplexer Example Circuit</h3>
+            <h3>2.2.1 Multiplexer Example Circuit</h3>
             <img src={Multiplexer} alt="Multiplexer" style={{ width: '40%', height: 'auto' }} className="responsive-image" />
-            <h3>2. Demultiplexer Example Circuit</h3>
+            <h3>2.2.2 Demultiplexer Example Circuit</h3>
             <img src={Demultiplexer} alt="Demultiplexer" style={{ width: '40%', height: 'auto' }} className="responsive-image" />
             <h2>2.3 Arithmetic Circuits</h2>
             <p>An adder circuit is a type of combinational circuit used in digital electronics to perform the addition of binary numbers.</p>
