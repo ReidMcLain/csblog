@@ -27,13 +27,16 @@ const CpuSimulation: React.FC = () => {
 
   return (
     <div className="cpu-container">
+      {/* Move Current Stage and Instruction counter above the CPU chip */}
+      <div className="cpu-info">
+        <p>Instruction: {instructionCounter}</p>
+        <p>Current Stage: {currentStage}</p>
+      </div>
+
       <div className="cpu-chip">
         {/* Control Unit in the center */}
         <div className="control-unit">
           <h3>Control Unit</h3>
-          <p>Current Stage: {currentStage}</p>
-          <p>Clock Cycle: {clockCycle}</p>
-          <p>Instruction: {instructionCounter}</p>
         </div>
 
         {/* ALU and Register with separate positioning */}
@@ -47,10 +50,20 @@ const CpuSimulation: React.FC = () => {
           <p>Stores temporary data</p>
         </div>
 
+        {/* Clock Cycle moved above the Next button */}
+        <p className="clock-cycle">Clock Cycle: {clockCycle}</p>
+
         {/* Next button */}
         <button className="next-button" onClick={handleNextClick}>
           Next
         </button>
+
+        {/* Pins at the bottom of the CPU chip */}
+        <div className="pins-container">
+          {Array.from({ length: 10 }).map((_, index) => (
+            <div key={index} className="pin"></div>
+          ))}
+        </div>
       </div>
     </div>
   );

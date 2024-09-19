@@ -1,97 +1,119 @@
-
 .cpu-container {
-    background-color: #0b6623; 
-    width: 650px; 
-    height: 350px;
-    padding: 20px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column; 
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px; 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); 
-  }
-  
-  /* CPU chip itself */
-  .cpu-chip {
-    position: relative; 
-    background-color: #333; 
-    width: 200px;
-    height: 200px;
-    padding: 20px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  /* Gold contacts (pins) */
-  .cpu-chip::before,
-  .cpu-chip::after {
-    content: '';
-    position: absolute;
-    width: 80px;
-    height: 10px;
-    background-color: gold;
-    border-radius: 5px;
-    top: -20px;
-    left: calc(50% - 40px);
-  }
-  
-  .cpu-chip::after {
-    top: unset;
-    bottom: -20px;
-  }
-  
-  .control-unit {
-    text-align: center;
-    color: #fff; 
-    width: 80%;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #333;
-  }
-  
-  .alu {
-    position: absolute;
-    top: 50px; 
-    right: 300px; 
-    width: 100px;
-    padding: 10px;
-    text-align: center;
-    background-color: #444;
-    color: #fff;
-    border-radius: 5px;
-  }
+  background-color: #0b6623; 
+  width: 650px; 
+  height: 400px; /* Adjusted height for new layout */
+  padding: 20px;
+  margin: 0 auto;
+  position: relative; /* Relative positioning for all absolute elements inside */
+  border-radius: 10px; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); 
+}
 
-  .register {
-    position: absolute;
-    top: 50px;  
-    left: 300px; 
-    width: 100px;
-    padding: 10px;
-    text-align: center;
-    background-color: #444;
-    color: #fff;
-    border-radius: 5px;
-  }
-  
-  .next-button {
-    position: absolute;
-    bottom: -70px; 
-    left: 250px;    
-    transform: translateX(-50%); 
-    padding: 10px 30px; 
-    width: 200px;
-    background-color: #007bff;
-    color: #fff;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .next-button:hover {
-    background-color: #0056b3;
-  }  
+/* CPU information (Current Stage and Instruction) */
+.cpu-info {
+  display: flex;
+  justify-content: space-between;
+  position: absolute; /* Absolute positioning */
+  top: 50px; /* Place at the top of the container */
+  width: 60%; /* Adjust width as needed */
+  color: #fff;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.cpu-chip {
+  position: absolute; /* Absolute to the container */
+  width: 100px;
+  height: 100px;
+  top: 100px; /* Centered vertically */
+  left: 50%; /* Centered horizontally */
+  transform: translateX(-50%);
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Control Unit is now absolutely positioned */
+.control-unit {
+  position: absolute; /* Make the Control Unit absolute to the container */
+  text-align: center;
+  color: #fff; 
+  width: 100px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #444;
+  top: 75px;
+}
+
+/* Pins container */
+.pins-container {
+  position: absolute;
+  top: 300px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px; /* Adjust padding to control pin spacing */
+}
+
+/* Individual pins */
+.pin {
+  width: 10px;
+  height: 40px;
+  background-color: gold;
+  border-radius: 3px;
+}
+
+/* ALU and Register positioning */
+.alu {
+  position: absolute;
+  top: 50px; 
+  right: 250px; 
+  width: 100px;
+  padding: 10px;
+  text-align: center;
+  background-color: #444;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.register {
+  position: absolute;
+  top: 50px;  
+  left: 250px; 
+  width: 100px;
+  padding: 10px;
+  text-align: center;
+  background-color: #444;
+  color: #fff;
+  border-radius: 5px;
+}
+
+/* Clock Cycle positioned above Next button */
+.clock-cycle {
+  position: absolute;
+  top: 200px; /* Position it above the button */
+  text-align: center;
+  color: #fff;
+  left: 300px;
+  transform: translateX(-50%);
+}
+
+.next-button {
+  position: absolute;
+  top: 290px; 
+  left: 300px;    
+  transform: translateX(-50%); 
+  padding: 10px 30px; 
+  width: 200px;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.next-button:hover {
+  background-color: #0056b3;
+}
