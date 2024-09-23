@@ -1,32 +1,31 @@
 .cpu-container {
-  background-color: #0b6623; 
-  width: 650px; 
-  height: 400px; /* Adjusted height for new layout */
+  background-color: #0b6623;
+  width: 650px;
+  height: 400px;
   padding: 20px;
   margin: 0 auto;
-  position: relative; /* Relative positioning for all absolute elements inside */
-  border-radius: 10px; 
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); 
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
-/* CPU information (Current Stage and Instruction) */
 .cpu-info {
   display: flex;
   justify-content: space-between;
-  position: absolute; /* Absolute positioning */
-  top: 50px; /* Place at the top of the container */
-  width: 60%; /* Adjust width as needed */
+  position: absolute;
+  top: 50px;
+  width: 30%;
   color: #fff;
-  left: 50%;
+  left: 25%;
   transform: translateX(-50%);
 }
 
 .cpu-chip {
-  position: absolute; /* Absolute to the container */
+  position: absolute;
   width: 100px;
   height: 100px;
-  top: 100px; /* Centered vertically */
-  left: 50%; /* Centered horizontally */
+  top: 100px;
+  left: 50%;
   transform: translateX(-50%);
   padding: 20px;
   border-radius: 10px;
@@ -35,11 +34,10 @@
   align-items: center;
 }
 
-/* Control Unit is now absolutely positioned */
 .control-unit {
-  position: absolute; /* Make the Control Unit absolute to the container */
+  position: absolute;
   text-align: center;
-  color: #fff; 
+  color: #fff;
   width: 100px;
   padding: 10px;
   border-radius: 5px;
@@ -47,17 +45,15 @@
   top: 75px;
 }
 
-/* Pins container */
 .pins-container {
   position: absolute;
   top: 300px;
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 0 10px; /* Adjust padding to control pin spacing */
+  padding: 0 10px;
 }
 
-/* Individual pins */
 .pin {
   width: 10px;
   height: 40px;
@@ -65,47 +61,82 @@
   border-radius: 3px;
 }
 
-/* ALU and Register positioning */
 .alu {
   position: absolute;
-  top: 50px; 
-  right: 250px; 
+  top: 50px;
+  right: 250px;
   width: 100px;
   padding: 10px;
   text-align: center;
   background-color: #444;
   color: #fff;
   border-radius: 5px;
+}
+
+.active-alu {
+  background-color: lightblue;
 }
 
 .register {
   position: absolute;
-  top: 50px;  
-  left: 250px; 
-  width: 100px;
-  padding: 10px;
-  text-align: center;
+  width: 60px;
+  height: 80px;
   background-color: #444;
   color: #fff;
   border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Clock Cycle positioned above Next button */
+.eax {
+  top: 0px;
+  left: 200px;
+}
+
+.ebx {
+  top: 0px;
+  left: 300px;
+}
+
+.ecx {
+  top: 120px;
+  left: 200px;
+}
+
+.edx {
+  top: 120px;
+  left: 300px;
+}
+
+.active-execute {
+  background-color: lightyellow;
+  color: black;
+}
+
+.active-decode {
+  background-color: yellow;
+  color: black;
+}
+
 .clock-cycle {
   position: absolute;
-  top: 200px; /* Position it above the button */
+  top: 200px;
   text-align: center;
   color: #fff;
-  left: 300px;
+  left: 70px;
   transform: translateX(-50%);
 }
 
 .next-button {
   position: absolute;
-  top: 290px; 
-  left: 300px;    
-  transform: translateX(-50%); 
-  padding: 10px 30px; 
+  top: 290px;
+  left: 300px;
+  transform: translateX(-50%);
+  padding: 10px 30px;
   width: 200px;
   background-color: #007bff;
   color: #fff;
@@ -116,4 +147,16 @@
 
 .next-button:hover {
   background-color: #0056b3;
+}
+
+.bus {
+  position: absolute;
+  width: 5px;
+  height: 175px;
+  background-color: grey;
+  bottom: 65px;
+}
+
+.active-bus {
+  background-color: #ff6600;
 }
