@@ -7,8 +7,6 @@ import Home from './pages/Home';
 import DigitalLogicandCircuits from './pages/DigitalLogicandCircuits';
 import ComputerArchitecture from './pages/ComputerArchitecture';
 import OperatingSystems from './pages/OperatingSystems';
-import DataStructuresandAlgorithms from './pages/DataStructuresandAlgorithms';
-import FullStackWebDevelopment from './pages/FullStackWebDevelopment';
 import './App.css';
 
 const App = () => {
@@ -23,8 +21,6 @@ const App = () => {
             <Route path="/logic-gates" element={<DigitalLogicandCircuits />} />
             <Route path="/computer-architecture" element={<ComputerArchitecture />} />
             <Route path="/operating-systems" element={<OperatingSystems />} />
-            <Route path="/algorithms" element={<DataStructuresandAlgorithms />} />
-            <Route path="/full-stack-development" element={<FullStackWebDevelopment />} />
           </Routes>
         </main>
         <Footer />

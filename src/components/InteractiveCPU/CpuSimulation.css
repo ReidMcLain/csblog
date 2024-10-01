@@ -42,7 +42,7 @@
   padding: 10px;
   border-radius: 5px;
   background-color: #444;
-  top: 75px;
+  top: 25px;
 }
 
 .pins-container {
@@ -63,7 +63,7 @@
 
 .alu {
   position: absolute;
-  top: 50px;
+  top: 30px;
   right: 250px;
   width: 100px;
   padding: 10px;
@@ -79,37 +79,81 @@
 
 .register {
   position: absolute;
-  width: 60px;
-  height: 80px;
+  width: 80px;
+  height: 40px;
   background-color: #444;
   color: #fff;
   border-radius: 5px;
-  padding: 10px;
+  padding: 0;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-size: 12px;
+  line-height: 1.1;
+  box-sizing: border-box;
+}
+
+.register h4, .register p {
+  margin: 0;
+  line-height: 1.1; /* Adjusted line-height for proper text spacing */
 }
 
 .eax {
-  top: 0px;
+  top:-10px;
   left: 200px;
 }
 
 .ebx {
-  top: 0px;
+  top: 10px;
   left: 300px;
 }
 
 .ecx {
-  top: 120px;
+  top: 110px;
   left: 200px;
 }
 
 .edx {
-  top: 120px;
+  top: 90px;
   left: 300px;
+}
+
+/* Program Counter (PC) */
+.pc {
+  top: 150px;
+  right: 120px;
+}
+
+/* Memory Address Register (MAR) */
+.mar {
+  top: 200px;
+  right: 120px;
+}
+
+/* Memory Data Register (MDR) */
+.mdr {
+  top: 250px;
+  right: 120px;
+}
+
+/* Instruction Register (IR) */
+.ir {
+  top: 150px;
+  left: 120px;
+}
+
+/* Decoder */
+.decoder {
+  top: 200px;
+  left: 120px;
+}
+
+/* Operand Register */
+.operand {
+  top: 250px;
+  left: 120px;
 }
 
 .active-execute {
@@ -127,7 +171,7 @@
   top: 200px;
   text-align: center;
   color: #fff;
-  left: 70px;
+  left: 300px;
   transform: translateX(-50%);
 }
 
@@ -149,14 +193,65 @@
   background-color: #0056b3;
 }
 
-.bus {
+.cu-bus {
   position: absolute;
   width: 5px;
-  height: 175px;
+  height: 125px;
   background-color: grey;
-  bottom: 65px;
+  bottom: 115px;
 }
 
+/* RAM bus specific position */
+.alu-bus {
+  position: absolute;
+  width: 120px;
+  height: 5px;
+  right: 130px;
+  top:70px;
+  background-color: grey;
+}
+
+/* EAX bus specific position */
+.eax-bus {
+  position: absolute;
+  width: 70px;
+  height: 5px;
+  left: 130px;
+  top: 30px;
+  background-color: grey;
+}
+
+/* EBX bus specific position */
+.ebx-bus {
+  position: absolute;
+  width: 170px;
+  height: 5px;
+  left: 130px;
+  top: 50px;
+  background-color: grey;
+}
+
+/* ECX bus specific position */
+.ecx-bus {
+  position: absolute;
+  width: 70px;
+  height: 5px;
+  left: 130px;
+  top: 115px;
+  background-color: grey;
+}
+
+/* EDX bus specific position */
+.edx-bus {
+  position: absolute;
+  width: 170px;
+  height: 5px;
+  left: 130px;
+  top: 95px;
+  background-color: grey;
+}
+
+/* Active state for all buses (only color change) */
 .active-bus {
   background-color: #ff6600;
 }
