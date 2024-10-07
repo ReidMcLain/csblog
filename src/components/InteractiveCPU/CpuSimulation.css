@@ -101,12 +101,12 @@
 }
 
 .eax {
-  top:-10px;
+  top: 0px;
   left: 200px;
 }
 
 .ebx {
-  top: 10px;
+  top: 20px;
   left: 300px;
 }
 
@@ -251,7 +251,84 @@
   background-color: grey;
 }
 
+.pc-bus {
+  position: absolute;
+  width: 5px;
+  height: 32px;
+  right:110px;
+  background-color: grey;
+  top: 123px;
+  transform: rotate(30deg);
+}
+
+.ir-bus {
+  position: absolute;
+  width: 5px;
+  height: 32px;
+  right:25px;
+  background-color: grey;
+  top: 123px;
+  transform: rotate(-30deg);
+}
+
+.mar-bus {
+  position: absolute;
+  width: 5px;
+  height: 86px;
+  right:100px;
+  background-color: grey;
+  top: 120px;
+  transform: rotate(25deg);
+}
+
+.decoder-bus {
+  position: absolute;
+  width: 5px;
+  height: 86px;
+  right: 35px;
+  background-color: grey;
+  top: 120px;
+  transform: rotate(-25deg);
+}
+
+.mdr-bus {
+  position: absolute;
+  width: 5px;
+  height: 136px;
+  right:96px;
+  background-color: grey;
+  top: 120px;
+  transform: rotate(21deg);
+}
+
+.operand-bus {
+  position: absolute;
+  width: 5px;
+  height: 136px;
+  right: 40px;
+  background-color: grey;
+  top: 120px;
+  transform: rotate(-21deg);
+}
+
 /* Active state for all buses (only color change) */
 .active-bus {
   background-color: #ff6600;
+}
+
+.back-button {
+  position: absolute;
+  top: 290px;
+  right: 200px; /* Positioned to the left side of the container */
+  padding: 10px 30px;
+  width: 200px;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.back-button:hover {
+  background-color: #0056b3;
 }
